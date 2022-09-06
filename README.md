@@ -1,6 +1,6 @@
 ## Indiafoss
 
-Free and Open Source Software conference by the FOSS United community.
+Free and Open Source Software conference management by the FOSS United community.
 
 
 ### Installation
