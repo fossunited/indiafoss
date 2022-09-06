@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{title}-{year}",
+ "creation": "2022-08-25 18:03:31.851643",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "subtitle",
+  "description",
+  "year",
+  "sponsors_title",
+  "sponsors",
+  "partners_title",
+  "partners",
+  "venu",
+  "date"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Markdown Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "subtitle",
+   "fieldtype": "Data",
+   "label": "Subtitle"
+  },
+  {
+   "fieldname": "year",
+   "fieldtype": "Select",
+   "label": "Year",
+   "options": "\n2022\n2023"
+  },
+  {
+   "fieldname": "sponsors",
+   "fieldtype": "Table",
+   "label": "Sponsors",
+   "options": "Conference Sponsors"
+  },
+  {
+   "fieldname": "partners",
+   "fieldtype": "Table",
+   "label": "Partners",
+   "options": "Conference Partners"
+  },
+  {
+   "fieldname": "sponsors_title",
+   "fieldtype": "Data",
+   "label": "Sponsors Title"
+  },
+  {
+   "fieldname": "partners_title",
+   "fieldtype": "Data",
+   "label": "Partners Title"
+  },
+  {
+   "fieldname": "venu",
+   "fieldtype": "Data",
+   "label": "Venu"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Data",
+   "label": "Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-09-05 22:06:05.182272",
+ "modified_by": "Administrator",
+ "module": "Indiafoss",
+ "name": "Conference",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
