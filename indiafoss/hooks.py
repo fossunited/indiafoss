@@ -2,7 +2,7 @@ from . import __version__ as app_version
 
 app_name = "indiafoss"
 app_title = "Indiafoss"
-app_publisher = "shridhar.p@zerodha..com"
+app_publisher = "shridhar.p@zerodha.com"
 app_description = "Free and Open Source Software conference by the FOSS United community."
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
@@ -188,3 +188,9 @@ app_license = "MIT"
 # 	"indiafoss.auth.validate"
 # ]
 
+
+fixtures = [
+    {"dt": "Web Page", "filters": [["module", "in", ("Indiafoss")]]},
+    {"dt": "Web Template", "filters": [["module", "in", ("Indiafoss")]]},
+    {"dt": "Web Form", "filters": [["module", "in", ("Indiafoss")]]},
+]

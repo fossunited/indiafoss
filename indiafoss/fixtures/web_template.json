@@ -1,0 +1,72 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Web Template",
+  "fields": [],
+  "modified": "2022-09-05 19:40:13.479250",
+  "module": "Indiafoss",
+  "name": "Foss conference ",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "standard": 0,
+  "template": "<!-- jinja -->\n<h1 class=\"hero-title\">{{ title }}</h1><p class=\"hero-subtitle\">\n\t\t\t{{ subtitle }} <br><br>\n\t\t\t\n<strong>23-24 July 2022 | {{ values }}</strong>\n</p><div class=\"hero-buttons\"><a class=\"btn btn-lg btn-primary\" href=\"2022/schedule\">\n\t\t\t\tSchedule\n\t\t\t</a></div>",
+  "type": "Section"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Web Template",
+  "fields": [],
+  "modified": "2022-09-05 21:58:40.770783",
+  "module": "Indiafoss",
+  "name": "Conference Title",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "standard": 0,
+  "template": "{% set conference = frappe.db.sql(\"SELECT title, subtitle, venu, date FROM `tabConference` where title = %(title)s and year=%(year)s \", args, as_dict=true )%}\n<div class=\"hero\">\n<div class=\"hero-content\">\n<h1 class=\"hero-title\">{{ conference[0].title }}</h1><p class=\"hero-subtitle\">\n\t\t\t{{ conference[0].subtitle }} <br><br>\n<strong>{{ conference[0].date }} | {{ conference[0].venu }}</strong>\n</p><div class=\"hero-buttons\"><a class=\"btn btn-lg btn-primary\" href=\"/schedule\">\n\t\t\t\tSchedule\n\t\t\t</a></div></div>\n</div>\n",
+  "type": "Section"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Web Template",
+  "fields": [],
+  "modified": "2022-09-05 21:53:18.253769",
+  "module": "Indiafoss",
+  "name": "Conference Sponsors",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "standard": 0,
+  "template": "{% set sponsors = frappe.db.sql(\"SELECT s.link, s.image, c.sponsors_title FROM `tabConference` c inner JOIN `tabConference Sponsors` s on c.name = s.parent  where c.title = %(title)s and c.year=%(year)s \", args, as_dict=true )%}\n{% if sponsors %}\n<h2 class=\"section-title\">Sponsors</h2>\n<p class=\"section-description\">{{ sponsors[0].sponsors_title }} \n\n{% for sponsor in sponsors %}\n<div class=\"row mt-5 mx-md-n3 align-items-center\"><div class=\"col-6 col-md-4 col-xs-12 py-2 p-md-3\">\n<a href=\"{{ sponsor.link }}\" rel=\"noopener noreferrer\" target=\"blank\">\n<img alt=\"{{ sponsor.company }}\" src=\"{{ sponsor.image }}\">\n</a>\n</div></div>\n{% endfor %}\n{% endif %}",
+  "type": "Section"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Web Template",
+  "fields": [],
+  "modified": "2022-09-05 22:16:15.113504",
+  "module": "Indiafoss",
+  "name": "Conference Partners",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "standard": 0,
+  "template": "{% set partners = frappe.db.sql(\"SELECT s.link, s.image, c.partners_title FROM `tabConference` c inner JOIN `tabConference Partners` s on c.name = s.parent  where c.title = %(title)s and c.year=%(year)s \", args, as_dict=true )%}\n\n{% if partners %}\n<h2 class=\"section-title\">Community Partners</h2>\n<p class=\"section-description\">{{ partners[0].partners_title }}\n\n{% for partner in partners %}\n<div class=\"row mt-5 mx-md-n3 align-items-center\"><div class=\"col-4 col-md-2 py-2 p-md-3\">\n<a href=\"{{ partner.link }}\" rel=\"noopener noreferrer\" target=\"blank\">\n<img alt=\"{{ partner.company }}\" src=\"{{ partner.image }}\">\n</a>\n</div></div>\n{% endfor %}\n{% endif %}",
+  "type": "Section"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Web Template",
+  "fields": [],
+  "modified": "2022-09-05 22:46:16.882289",
+  "module": "Indiafoss",
+  "name": "Conference Venu",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "standard": 0,
+  "template": "<div class = \"row\">\n    <h2 class=\"section-title col\">Conference Venu</h2>\n</div>\n<div class = \"row venue\">\n    <div class = \"col-lg-8 col-md-8\">\n        <div class = \"text\">\n        <h3 class = \"place-heading\">CUSAT Seminar Complex</h3>\n        <p class =\"place\"><a id=\"map\" href = \"https://goo.gl/maps/Wehj81k1cZuuMutv6\">\n           CUSAT Seminar Complex South Kalamassery, Kalamassery<br>\n            Kochi, Kerala\n        </a></p>\n        </div>\n    </div>\n    <div class = \"col-lg-4 col-md-4\">\n        <div class = \"text\">\n        <h3 class = \"place-heading\">Date</h3>\n        <p class = \"place\">\n            15th October, 2022<br>\n            8:30 AM to 6 PM\n        </p>\n        </div>\n    </div>\n</div>\n\n<style>\n    #map {\n      color:#4C5A67;\n      text-decoration: underline;\n    }\n    .venue {\n        height: auto;\n         position: relative; \n    }\n    .venue::before {\n        content: \"\";\n        background-image: url('https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Maps_Pin_FullColor.max-1000x1000.png');\n        background-position: center center;\n        background-size: cover;\n        opacity: 0.1;\n        position: absolute;\n        top: 0px;\n        right: 0px;\n        bottom: 0px;\n        left: 0px;\n    }\n    .text {\n        padding-top: 3vw;\n    }\n    @media screen and (max-width: 414px) {\n        .venue {\n            margin: 0 1.7vw 0 1.7vw;\n        }\n        .place {\n            font-size: 3.7vw;\n        }\n        .place-heading {\n            font-size: 4.7vw;\n        }\n    }\n    @media screen and (max-width: 576px) and (min-width: 414px) {\n        .venue {\n            margin: 0 1.7vw 0 1.7vw;\n        }\n        .place {\n            font-size: 3.3vw;\n        }\n        .place-heading {\n            font-size: 4.3vw;\n        }\n    }\n</style>",
+  "type": "Section"
+ }
+]
