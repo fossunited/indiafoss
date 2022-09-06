@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:email",
+ "creation": "2022-09-06 11:03:45.695351",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "full_name",
+  "email",
+  "preferred_name",
+  "photo",
+  "short_intro",
+  "social_section",
+  "twitter",
+  "github",
+  "website"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Full Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Email",
+   "options": "Email",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "preferred_name",
+   "fieldtype": "Data",
+   "label": "Preferred Name"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "short_intro",
+   "fieldtype": "Data",
+   "label": "Short Intro"
+  },
+  {
+   "fieldname": "social_section",
+   "fieldtype": "Section Break",
+   "label": "Social"
+  },
+  {
+   "fieldname": "twitter",
+   "fieldtype": "Data",
+   "label": "Twitter"
+  },
+  {
+   "fieldname": "github",
+   "fieldtype": "Data",
+   "label": "GitHub"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-09-06 11:05:37.183880",
+ "modified_by": "Administrator",
+ "module": "Indiafoss",
+ "name": "Conference Members",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

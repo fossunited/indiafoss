@@ -16,7 +16,12 @@
   "partners_title",
   "partners",
   "venu",
-  "date"
+  "venu_details",
+  "venu_map_link",
+  "date",
+  "start_time",
+  "end_time",
+  "volunteers"
  ],
  "fields": [
   {
@@ -71,11 +76,37 @@
    "fieldname": "date",
    "fieldtype": "Data",
    "label": "Date"
+  },
+  {
+   "fieldname": "venu_details",
+   "fieldtype": "Text",
+   "label": "Venu Details"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Data",
+   "label": "Start Time"
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Data",
+   "label": "End Time"
+  },
+  {
+   "fieldname": "venu_map_link",
+   "fieldtype": "Data",
+   "label": "Venu Map Link"
+  },
+  {
+   "fieldname": "volunteers",
+   "fieldtype": "Table",
+   "label": "Volunteers",
+   "options": "Conference Volunteers"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-05 22:06:05.182272",
+ "modified": "2022-09-06 11:08:14.496172",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
