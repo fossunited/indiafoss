@@ -20,7 +20,7 @@
   "meta_description": null,
   "meta_image": null,
   "meta_title": null,
-  "modified": "2022-09-07 17:28:04.040093",
+  "modified": "2022-09-07 20:35:05.626820",
   "module": "Indiafoss",
   "name": "conference",
   "page_blocks": [
@@ -103,7 +103,7 @@
     "web_template_values": null
    },
    {
-    "add_bottom_padding": 0,
+    "add_bottom_padding": 1,
     "add_container": 1,
     "add_shade": 0,
     "add_top_padding": 0,
