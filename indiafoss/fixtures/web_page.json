@@ -15,12 +15,12 @@
   "insert_style": 1,
   "javascript": "function venu(){\nvar section = $('.section[data-section-template=\"Conference Venu\"]');\n  $('html, body').animate({\n    scrollTop: $(section).offset().top\n  }, 'slow');\n}",
   "main_section": null,
-  "main_section_html": null,
+  "main_section_html": "",
   "main_section_md": null,
   "meta_description": null,
   "meta_image": null,
   "meta_title": null,
-  "modified": "2022-09-07 14:30:43.279965",
+  "modified": "2022-09-07 17:28:04.040093",
   "module": "Indiafoss",
   "name": "conference",
   "page_blocks": [
@@ -51,10 +51,10 @@
     "web_template_values": null
    },
    {
-    "add_bottom_padding": 1,
+    "add_bottom_padding": 0,
     "add_container": 1,
     "add_shade": 0,
-    "add_top_padding": 1,
+    "add_top_padding": 0,
     "css_class": null,
     "hide_block": 0,
     "parent": "conference",
@@ -64,10 +64,10 @@
     "web_template_values": null
    },
    {
-    "add_bottom_padding": 1,
+    "add_bottom_padding": 0,
     "add_container": 1,
     "add_shade": 0,
-    "add_top_padding": 1,
+    "add_top_padding": 0,
     "css_class": null,
     "hide_block": 0,
     "parent": "conference",
@@ -77,10 +77,10 @@
     "web_template_values": null
    },
    {
-    "add_bottom_padding": 1,
+    "add_bottom_padding": 0,
     "add_container": 1,
     "add_shade": 0,
-    "add_top_padding": 1,
+    "add_top_padding": 0,
     "css_class": null,
     "hide_block": 0,
     "parent": "conference",
@@ -90,10 +90,10 @@
     "web_template_values": null
    },
    {
-    "add_bottom_padding": 1,
+    "add_bottom_padding": 0,
     "add_container": 1,
     "add_shade": 0,
-    "add_top_padding": 1,
+    "add_top_padding": 0,
     "css_class": null,
     "hide_block": 0,
     "parent": "conference",
@@ -103,10 +103,10 @@
     "web_template_values": null
    },
    {
-    "add_bottom_padding": 1,
+    "add_bottom_padding": 0,
     "add_container": 1,
     "add_shade": 0,
-    "add_top_padding": 1,
+    "add_top_padding": 0,
     "css_class": null,
     "hide_block": 0,
     "parent": "conference",
