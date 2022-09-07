@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{title}-{year}",
+ "autoname": "format:{city}-{year}",
  "creation": "2022-08-25 18:03:31.851643",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -195,7 +195,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-07 14:43:34.080050",
+ "modified": "2022-09-07 15:55:37.485719",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
