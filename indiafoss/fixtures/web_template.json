@@ -31,14 +31,14 @@
   "docstatus": 0,
   "doctype": "Web Template",
   "fields": [],
-  "modified": "2022-09-06 10:20:12.581043",
+  "modified": "2022-09-07 11:35:13.465583",
   "module": "Indiafoss",
   "name": "Conference Title",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "standard": 0,
-  "template": "{% set conference = frappe.db.sql(\"SELECT title, subtitle, venu, date FROM `tabConference` where title = %(title)s and year=%(year)s \", args, as_dict=true )%}\n<div class=\"hero\">\n<div class=\"hero-content\">\n<h1 class=\"hero-title\">{{ conference[0].title }}</h1><p class=\"hero-subtitle\">\n\t\t\t{{ conference[0].subtitle }} <br><br>\n<strong>{{ conference[0].date }} | {{ conference[0].venu }}</strong>\n</p>\n <!--   <div class=\"hero-buttons\">-->\n <!--       <a class=\"btn btn-lg btn-primary\" href=\"/schedule\">-->\n\t<!--\t\t\tSchedule-->\n\t<!--    </a>-->\n\t<!--</div>-->\n\t</div>\n</div>\n",
+  "template": "{% set conference = frappe.db.sql(\"SELECT title, subtitle, venu, date FROM `tabConference` where title = %(title)s and year=%(year)s \", args, as_dict=true )%}\n<div class=\"hero\">\n<div class=\"hero-content\">\n<h1 class=\"hero-title\">{{ conference[0].title }}</h1><p class=\"hero-subtitle\">\n\t\t\t{{ conference[0].subtitle }} <br><br>\n<strong>{{ conference[0].date }} | {{ conference[0].venu }}</strong>\n</p>\n    <div class=\"hero-buttons\">\n        <a class=\"btn btn-lg btn-primary\" href=\"/schedule/{{ args.title }}/{{args.year}}\">\n\t\t\t\tSchedule\n\t    </a>\n\t</div>\n\t</div>\n</div>\n",
   "type": "Section"
  },
  {
@@ -87,14 +87,14 @@
   "docstatus": 0,
   "doctype": "Web Template",
   "fields": [],
-  "modified": "2022-09-06 11:26:51.889610",
+  "modified": "2022-09-06 12:39:15.114225",
   "module": "Indiafoss",
   "name": "Conference Volunteers",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "standard": 0,
-  "template": "<h2 class=\"section-title\">Volunteers</h2><p class=\"section-description\">Folks running the show behind the scenes.</p>\n{% set volunteers = frappe.db.sql(\"SELECT m.full_name, m.photo, m.short_intro FROM `tabConference` c inner JOIN `tabConference Volunteers` v on c.name = v.parent inner JOIN `tabConference Members` as m on v.member = m.name where c.title = %(title)s and c.year=%(year)s group by m.name\", args, as_dict=true )%}\n{% if volunteers %}\n<div class=\"row mt-4\">\n    {% for volunteer in volunteers%}\n\n    <div class=\"mt-4 media col-md-4 col-12\">\n        <img class=\"mr-3 rounded-circle img-thumbnail\" height=\"60\" src=\"{{ volunteer.photo }}\" width=\"60\">\n        <div class=\"media-body\">\n            <h5 class=\"mb-0 mt-1\">{{ volunteer.full_name }}</h5>\n            <span class=\"text-muted small\">{{ volunteer.short_intro }}.</span>\n        </div>\n    </div>\n    {% endfor %}\n</div>\n{% endif %}",
+  "template": "{% set volunteers = frappe.db.sql(\"SELECT m.full_name, m.photo, m.short_intro FROM `tabConference` c inner JOIN `tabConference Volunteers` v on c.name = v.parent inner JOIN `tabConference Members` as m on v.member = m.name where c.title = %(title)s and c.year=%(year)s group by m.name\", args, as_dict=true )%}\n{% if volunteers %}\n<h2 class=\"section-title\">Volunteers</h2><p class=\"section-description\">Folks running the show behind the scenes.</p>\n<div class=\"row mt-4\">\n    {% for volunteer in volunteers%}\n\n    <div class=\"mt-4 media col-md-4 col-12\">\n        <img class=\"mr-3 rounded-circle img-thumbnail\" height=\"60\" src=\"{{ volunteer.photo }}\" width=\"60\">\n        <div class=\"media-body\">\n            <h5 class=\"mb-0 mt-1\">{{ volunteer.full_name }}</h5>\n            <span class=\"text-muted small\">{{ volunteer.short_intro }}.</span>\n        </div>\n    </div>\n    {% endfor %}\n</div>\n{% endif %}",
   "type": "Section"
  }
 ]

@@ -8,20 +8,28 @@
  "engine": "InnoDB",
  "field_order": [
   "title",
-  "subtitle",
-  "description",
   "year",
+  "start_time",
+  "column_break_2",
+  "subtitle",
+  "date",
+  "end_time",
+  "section_break_6",
+  "description",
+  "section_break_10",
   "sponsors_title",
   "sponsors",
+  "column_break_13",
   "partners_title",
   "partners",
+  "section_break_16",
   "venu",
-  "venu_details",
   "venu_map_link",
-  "date",
-  "start_time",
-  "end_time",
-  "volunteers"
+  "column_break_18",
+  "venu_details",
+  "section_break_22",
+  "volunteers",
+  "schedule_talks"
  ],
  "fields": [
   {
@@ -30,6 +38,7 @@
    "label": "Title"
   },
   {
+   "description": "Description in markdown format",
    "fieldname": "description",
    "fieldtype": "Markdown Editor",
    "label": "Description"
@@ -40,10 +49,11 @@
    "label": "Subtitle"
   },
   {
+   "description": "Edition",
    "fieldname": "year",
    "fieldtype": "Select",
    "label": "Year",
-   "options": "\n2022\n2023"
+   "options": "\n2022\n2023\n2024\n2025\n2026\n2027\n2028\n2029\n2030\n2031\n2032"
   },
   {
    "fieldname": "sponsors",
@@ -60,19 +70,20 @@
   {
    "fieldname": "sponsors_title",
    "fieldtype": "Data",
-   "label": "Sponsors Title"
+   "label": "Sponsors Sub Title"
   },
   {
    "fieldname": "partners_title",
    "fieldtype": "Data",
-   "label": "Partners Title"
+   "label": "Partners Sub Title"
   },
   {
    "fieldname": "venu",
    "fieldtype": "Data",
-   "label": "Venu"
+   "label": "Venu Name"
   },
   {
+   "description": "Format Ex:  20-22 July 2022 ",
    "fieldname": "date",
    "fieldtype": "Data",
    "label": "Date"
@@ -80,19 +91,22 @@
   {
    "fieldname": "venu_details",
    "fieldtype": "Text",
-   "label": "Venu Details"
+   "label": "Venu Address Details"
   },
   {
+   "description": "Format Ex: 8.30 AM",
    "fieldname": "start_time",
    "fieldtype": "Data",
    "label": "Start Time"
   },
   {
+   "description": "Format Ex: 7PM",
    "fieldname": "end_time",
    "fieldtype": "Data",
    "label": "End Time"
   },
   {
+   "description": "Google map link",
    "fieldname": "venu_map_link",
    "fieldtype": "Data",
    "label": "Venu Map Link"
@@ -102,11 +116,45 @@
    "fieldtype": "Table",
    "label": "Volunteers",
    "options": "Conference Volunteers"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_10",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_22",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "schedule_talks",
+   "fieldtype": "Table",
+   "label": "Schedule Talks",
+   "options": "Conference Talks"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-06 11:08:14.496172",
+ "modified": "2022-09-07 10:50:17.873575",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",

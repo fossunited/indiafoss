@@ -49,12 +49,14 @@
   {
    "fieldname": "photo",
    "fieldtype": "Attach Image",
-   "label": "Photo"
+   "label": "Photo",
+   "reqd": 1
   },
   {
    "fieldname": "short_intro",
    "fieldtype": "Data",
-   "label": "Short Intro"
+   "label": "Short Intro",
+   "reqd": 1
   },
   {
    "fieldname": "social_section",
@@ -79,7 +81,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-06 11:05:37.183880",
+ "modified": "2022-09-06 13:20:32.453953",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Members",
