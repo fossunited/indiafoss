@@ -66,22 +66,25 @@
   {
    "fieldname": "twitter",
    "fieldtype": "Data",
-   "label": "Twitter"
+   "label": "Twitter",
+   "options": "URL"
   },
   {
    "fieldname": "github",
    "fieldtype": "Data",
-   "label": "GitHub"
+   "label": "GitHub",
+   "options": "URL"
   },
   {
    "fieldname": "website",
    "fieldtype": "Data",
-   "label": "Website"
+   "label": "Website",
+   "options": "URL"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-06 13:20:32.453953",
+ "modified": "2022-09-07 19:21:25.779926",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Members",

@@ -124,7 +124,8 @@
    "description": "Google map link",
    "fieldname": "venu_map_link",
    "fieldtype": "Data",
-   "label": "Venu Map Link"
+   "label": "Venu Map Link",
+   "options": "URL"
   },
   {
    "fieldname": "volunteers",
@@ -180,7 +181,8 @@
   {
    "fieldname": "action_button_url",
    "fieldtype": "Data",
-   "label": "Action Button URL"
+   "label": "Action Button URL",
+   "options": "URL"
   },
   {
    "fieldname": "column_break_11",
@@ -195,7 +197,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-07 15:55:37.485719",
+ "modified": "2022-09-07 19:20:55.678680",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
