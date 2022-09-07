@@ -2,8 +2,8 @@
  {
   "breadcrumbs": null,
   "content_type": "Page Builder",
-  "context_script": "no_cache = 1\nno_sitemap = 1\n\n\ncontext.title = args.title\ncontext.subtitle = \"project\"\n\ncontext.project = \"project\"",
-  "css": null,
+  "context_script": "no_cache = 1\nno_sitemap = 1\n\n\ncontext.title = args.city\ncontext.subtitle = \"project\"\n\ncontext.project = \"project\"",
+  "css": ".section-cta {\n    background-color: rgb(0,0,0);\n}\n.section-cta .title {\n    font-size: 2.25rem;\n    color:rgb(255,255,255);\n}",
   "docstatus": 0,
   "doctype": "Web Page",
   "dynamic_route": 1,
@@ -12,15 +12,15 @@
   "end_date": null,
   "full_width": 1,
   "header": null,
-  "insert_style": 0,
-  "javascript": "",
+  "insert_style": 1,
+  "javascript": "function venu(){\nvar section = $('.section[data-section-template=\"Conference Venu\"]');\n  $('html, body').animate({\n    scrollTop: $(section).offset().top\n  }, 'slow');\n}",
   "main_section": null,
   "main_section_html": null,
   "main_section_md": null,
   "meta_description": null,
   "meta_image": null,
   "meta_title": null,
-  "modified": "2022-09-06 12:37:52.575301",
+  "modified": "2022-09-07 14:30:43.279965",
   "module": "Indiafoss",
   "name": "conference",
   "page_blocks": [
@@ -38,7 +38,7 @@
     "web_template_values": null
    },
    {
-    "add_bottom_padding": 0,
+    "add_bottom_padding": 1,
     "add_container": 1,
     "add_shade": 0,
     "add_top_padding": 1,
@@ -51,7 +51,7 @@
     "web_template_values": null
    },
    {
-    "add_bottom_padding": 0,
+    "add_bottom_padding": 1,
     "add_container": 1,
     "add_shade": 0,
     "add_top_padding": 1,
@@ -64,7 +64,7 @@
     "web_template_values": null
    },
    {
-    "add_bottom_padding": 0,
+    "add_bottom_padding": 1,
     "add_container": 1,
     "add_shade": 0,
     "add_top_padding": 1,
@@ -77,7 +77,7 @@
     "web_template_values": null
    },
    {
-    "add_bottom_padding": 0,
+    "add_bottom_padding": 1,
     "add_container": 1,
     "add_shade": 0,
     "add_top_padding": 1,
@@ -101,13 +101,26 @@
     "parenttype": "Web Page",
     "web_template": "Conference Volunteers",
     "web_template_values": null
+   },
+   {
+    "add_bottom_padding": 1,
+    "add_container": 1,
+    "add_shade": 0,
+    "add_top_padding": 1,
+    "css_class": null,
+    "hide_block": 0,
+    "parent": "conference",
+    "parentfield": "page_blocks",
+    "parenttype": "Web Page",
+    "web_template": "Conference Schedule",
+    "web_template_values": null
    }
   ],
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "published": 1,
-  "route": "conference/<title>/<year>",
+  "route": "<city>/<year>",
   "show_sidebar": 0,
   "show_title": 0,
   "slideshow": null,
@@ -119,7 +132,7 @@
  {
   "breadcrumbs": null,
   "content_type": "HTML",
-  "context_script": "context.day = frappe.form_dict.day or '1'\nargs['day'] = context.day\n\n\ntalks = frappe.db.sql(\"SELECT t.* FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.parent  where c.title = %(title)s and c.year=%(year)s and t.day = %(day)s order by t.idx asc\", args, as_dict=True )\ncontext.days = frappe.db.sql(\"SELECT t.day FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.parent  where c.title = %(title)s and c.year=%(year)s group by t.day\", args, as_dict=True )\n\nhall1talks = []\n\nfor talk in talks:\n    hall1talks.append(talk)\n\n\ncontext.hall1talks = hall1talks\n\ndef make_talk(title, start_time=\"\", end_time=\"\", is_break=False): \n    return {\n        \"name\": title, \n        \"start_time\": start_time,\n        \"end_time\": end_time,\n        \"break\": is_break\n    }\n    \ndef get_talk_time(talk):\n    return talk['start_time']\n\n\n\n",
+  "context_script": "context.day = frappe.form_dict.day or '1'\nargs['day'] = context.day\n\n\ntalks = frappe.db.sql(\"SELECT t.* FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.parent  where c.city = %(city)s and c.year=%(year)s and t.day = %(day)s order by t.idx asc\", args, as_dict=True )\ncontext.days = frappe.db.sql(\"SELECT t.day FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.parent  where c.city = %(city)s and c.year=%(year)s group by t.day\", args, as_dict=True )\n\nhall1talks = []\n\nfor talk in talks:\n    hall1talks.append(talk)\n\n\ncontext.hall1talks = hall1talks\n\ndef make_talk(title, start_time=\"\", end_time=\"\", is_break=False): \n    return {\n        \"name\": title, \n        \"start_time\": start_time,\n        \"end_time\": end_time,\n        \"break\": is_break\n    }\n    \ndef get_talk_time(talk):\n    return talk['start_time']\n\n\n\n",
   "css": ".talk-card .card-title {\n    font-weight: 600;\n    margin-bottom: 1rem;\n}\n\n.talk-card .meta {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    width: 100%;\n    margin-bottom: 1rem;\n}\n\n.talk-card .category, .talk-card .time {\n    font-size: var(--font-size-xs);\n    display: inline-block;\n    padding: 0.2rem 0.7rem;\n    border-radius: 0.5rem;\n    background-color: var(--gray-100);\n    color: var(--gray-600);\n    font-weight: 500;\n}\n\n.talk-card .category {\n    background-color: var(--green-100);\n    color: var(--green-800);\n}\n\n.talk-card .time {\n    font-size: var(--font-size-sm);\n    color: var(--gray-800);\n}\n\n.talk-card.break {\n    background: #eee;\n}\n\n\n.talk-author {\n    display: flex;\n    align-items: center;\n    gap: 1rem\n}\n\n.talk-author img {\n    width: 4rem;\n    height: 4rem;\n    object-fit: cover;\n    border-radius: 50%;\n}\n\n.talk-author .fullname {\n    font-weight: 500;\n}",
   "docstatus": 0,
   "doctype": "Web Page",
@@ -130,14 +143,14 @@
   "full_width": 0,
   "header": null,
   "insert_style": 1,
-  "javascript": null,
+  "javascript": "",
   "main_section": null,
   "main_section_html": "{% macro talk_card(talk) %}\n<div class=\"talk-card card mt-8 {{ 'break' if talk.get('is_break') }}\">\n  <div class=\"card-body\">\n    <div class=\"meta\">\n        <div class=\"time\">{{ talk.start_time }} - {{ talk.end_time }}</div>\n        {% if talk.category %}\n        <span class=\"category\">{{ talk.category }}</span>\n        {% endif %}\n    </div>\n    \n    <h5 class=\"card-title\">{{ talk.title }}</h5>\n    {% if not talk.get('is_break') %}\n    <div class=\"talk-author\">\n        {% if talk.photo %}\n        <img src=\"{{ talk.photo }}\" alt=\"Profile photo of {{ talk.name1 }}\">\n        {% endif %}\n        <div>\n            {% if talk.name1 %}\n                <div class=\"fullname\">{{ talk.name1 }}</div>\n            {% endif %}\n            {% if talk.designation %}\n            <div class=\"designation\">{{ talk.designation }}</div>\n            {% endif %}\n        </div>\n    </div>\n    {% if talk.get('slug') %}\n    <a class='stretched-link' href=\"/2022/cfp/submissions/{{ talk.slug }}\"></a>\n        <span class=\"sr-only\">View Talk</span>\n    </a>\n    {% endif %}\n    {% endif %}\n  </div>\n</div>\n{% endmacro %}\n\n<div class=\"py-12\">\n    <h1>Schedule</h1>\n    <p class=\"lead\">All the times mentioned in the schedule are in Indian Standard Time (IST) timezone and 24-hour clock.</p>\n</div>\n\n<div class=\"btn-group\" role=\"group\" aria-label=\"Basic example\">\n    {% for talkday in days %}\n  <a href=\"?day={{ talkday.day }}\" class=\"btn btn-secondary {{ 'active' if day == talkday.day else '' }}\">Day {{talkday.day}}</a>\n  {% endfor %}\n</div>\n\n<div class=\"row\">\n\n\n{% for talk in hall1talks %}\n   <div class=\"col-md-6\">\n    {{ talk_card(talk) }}\n    </div>\n{% endfor %}\n</div>\n\n",
   "main_section_md": null,
   "meta_description": null,
   "meta_image": null,
   "meta_title": null,
-  "modified": "2022-09-07 11:37:02.944443",
+  "modified": "2022-09-07 14:31:24.481876",
   "module": "Indiafoss",
   "name": "conference-schedule",
   "page_blocks": [],
@@ -145,7 +158,7 @@
   "parentfield": null,
   "parenttype": null,
   "published": 1,
-  "route": "schedule/<title>/<year>",
+  "route": "<city>/<year>/schedule",
   "show_sidebar": 0,
   "show_title": 0,
   "slideshow": null,
