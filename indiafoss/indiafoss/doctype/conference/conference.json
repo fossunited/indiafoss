@@ -9,11 +9,13 @@
  "field_order": [
   "city",
   "title",
-  "year",
+  "logo",
+  "start_date",
   "start_time",
   "column_break_2",
   "subtitle",
-  "date",
+  "year",
+  "end_date",
   "end_time",
   "section_break_9",
   "action_button_label",
@@ -34,7 +36,11 @@
   "venu_details",
   "section_break_22",
   "volunteers",
-  "schedule_talks"
+  "section_break_30",
+  "cfp_start_date",
+  "column_break_32",
+  "cfp_end_date",
+  "section_break_34"
  ],
  "fields": [
   {
@@ -94,29 +100,22 @@
    "label": "Venu Name"
   },
   {
-   "description": "Format Ex:  20-22 July 2022 ",
-   "fieldname": "date",
-   "fieldtype": "Data",
-   "label": "Date",
-   "reqd": 1
-  },
-  {
    "fieldname": "venu_details",
    "fieldtype": "Text",
    "label": "Venu Address Details"
   },
   {
-   "description": "Format Ex: 8.30 AM",
+   "description": "Event start time",
    "fieldname": "start_time",
-   "fieldtype": "Data",
+   "fieldtype": "Time",
    "in_list_view": 1,
    "label": "Start Time",
    "reqd": 1
   },
   {
-   "description": "Format Ex: 7PM",
+   "description": "Event end time",
    "fieldname": "end_time",
-   "fieldtype": "Data",
+   "fieldtype": "Time",
    "label": "End Time",
    "reqd": 1
   },
@@ -162,12 +161,6 @@
    "fieldtype": "Section Break"
   },
   {
-   "fieldname": "schedule_talks",
-   "fieldtype": "Table",
-   "label": "Schedule Talks",
-   "options": "Conference Talks"
-  },
-  {
    "fieldname": "city",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -193,11 +186,51 @@
    "fieldname": "action_button_label",
    "fieldtype": "Data",
    "label": "Action Button Label"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End date",
+   "reqd": 1
+  },
+  {
+   "description": "Event start date",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "logo",
+   "fieldtype": "Attach Image",
+   "label": "Logo"
+  },
+  {
+   "fieldname": "section_break_30",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "cfp_start_date",
+   "fieldtype": "Date",
+   "label": "CFP Start Date"
+  },
+  {
+   "fieldname": "cfp_end_date",
+   "fieldtype": "Date",
+   "label": "CFP End Date"
+  },
+  {
+   "fieldname": "column_break_32",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_34",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-07 19:20:55.678680",
+ "modified": "2022-09-14 11:43:53.479553",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
