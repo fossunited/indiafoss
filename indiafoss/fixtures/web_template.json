@@ -31,14 +31,14 @@
   "docstatus": 0,
   "doctype": "Web Template",
   "fields": [],
-  "modified": "2022-09-14 11:46:28.241678",
+  "modified": "2022-09-15 12:51:06.973945",
   "module": "Indiafoss",
   "name": "Conference Title",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "standard": 0,
-  "template": "{% set conference = frappe.db.sql(\"SELECT title, subtitle, venu, action_button_url, action_button_label, start_date, end_date, logo FROM `tabConference` where city = %(city)s and year=%(year)s \", args, as_dict=true )%}\n{% set talks = frappe.db.sql(\"SELECT t.name FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.parent  where lower(c.city) = lower(%(city)s) and c.year=%(year)s limit 1\", args, as_dict=True )%}\n\n<a class=\"logo section-padding-bottom\" href=\"/{{ args.city }}/{{args.year}}\"> {% if conference[0].logo %} <img src=\"{{ conference[0].logo }}\"> {% endif %} </a>\n\n<div class=\"hero\">\n<div class=\"hero-content\">\n<h1 class=\"hero-title\">{{ conference[0].title }}</h1><p class=\"hero-subtitle\">\n\t\t\t{{ conference[0].subtitle }} <br><br>\n<strong onclick=\"venue()\"><span id=\"eventDate\"> </span> | {{ conference[0].venu }}</strong>\n</p>\n    \n    <div class=\"hero-buttons\">\n        {% if talks %}\n        <a class=\"btn btn-lg btn-primary\" href=\"/{{ args.city }}/{{args.year}}/schedule\">\n\t\t\t\tSchedule\n\t    </a>\n\t    {% endif %}\n\t    {% if conference[0].action_button_label %}\n\t    <a class=\"btn btn-lg btn-primary-light\" href=\"{{ conference[0].action_button_url }}\">{{ conference[0].action_button_label }}</a>\n\t    {% endif %}\n\t</div>\n\t\n\t</div>\n</div>\n<script> formatDateRange(\"{{ conference[0].start_date}}\", \"{{ conference[0].end_date }}\", \"eventDate\") </script>\n",
+  "template": "{% set conference = frappe.db.sql(\"SELECT title, subtitle, venu, action_button_url, action_button_label, start_date, end_date, logo FROM `tabConference` where city = %(city)s and year=%(year)s \", args, as_dict=true )%}\n{% set talks = frappe.db.sql(\"SELECT t.name FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.conference  where lower(c.city) = lower(%(city)s) and c.year=%(year)s limit 1\", args, as_dict=True )%}\n\n<a class=\"logo section-padding-bottom\" href=\"/{{ args.city }}/{{args.year}}\"> {% if conference[0].logo %} <img src=\"{{ conference[0].logo }}\"> {% endif %} </a>\n\n<div class=\"hero\">\n<div class=\"hero-content\">\n<h1 class=\"hero-title\">{{ conference[0].title }}</h1><p class=\"hero-subtitle\">\n\t\t\t{{ conference[0].subtitle }} <br><br>\n<strong onclick=\"venue()\"><span id=\"eventDate\"> </span> | {{ conference[0].venu }}</strong>\n</p>\n    \n    <div class=\"hero-buttons\">\n        {% if talks %}\n        <a class=\"btn btn-lg btn-primary\" href=\"/{{ args.city }}/{{args.year}}/schedule\">\n\t\t\t\tSchedule\n\t    </a>\n\t    {% endif %}\n\t    {% if conference[0].action_button_label %}\n\t    <a class=\"btn btn-lg btn-primary-light\" href=\"{{ conference[0].action_button_url }}\">{{ conference[0].action_button_label }}</a>\n\t    {% endif %}\n\t</div>\n\t\n\t</div>\n</div>\n<script> formatDateRange(\"{{ conference[0].start_date}}\", \"{{ conference[0].end_date }}\", \"eventDate\") </script>\n",
   "type": "Section"
  },
  {
@@ -101,14 +101,14 @@
   "docstatus": 0,
   "doctype": "Web Template",
   "fields": [],
-  "modified": "2022-09-07 14:32:52.104705",
+  "modified": "2022-09-15 12:51:31.362233",
   "module": "Indiafoss",
   "name": "Conference Schedule",
   "parent": null,
   "parentfield": null,
   "parenttype": null,
   "standard": 0,
-  "template": "{% set talks = frappe.db.sql(\"SELECT t.name FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.parent  where lower(c.city) = lower(%(city)s) and c.year=%(year)s limit 1\", args, as_dict=True )%}\n<div class=\"section-cta-container\">\n<div class=\"section-cta\">\n<h2 class=\"title\">Schedule</h2><div class=\"mt-6\">\n    {% if talks %}\n        <a class=\"btn btn-lg btn-primary\" href=\"/{{ args.city }}/{{ args.year }}/schedule\">Check our schedule</a>\n    {% else %}\n    <a class=\"btn btn-lg btn-primary\">Yet to be announced.</a>\n    \n    {% endif %}\n    \n</div></div></div>\n",
+  "template": "{% set talks = frappe.db.sql(\"SELECT t.name FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.conference  where lower(c.city) = lower(%(city)s) and c.year=%(year)s limit 1\", args, as_dict=True )%}\n<div class=\"section-cta-container\">\n<div class=\"section-cta\">\n<h2 class=\"title\">Schedule</h2><div class=\"mt-6\">\n    {% if talks %}\n        <a class=\"btn btn-lg btn-primary\" href=\"/{{ args.city }}/{{ args.year }}/schedule\">Check our schedule</a>\n    {% else %}\n    <a class=\"btn btn-lg btn-primary\">Yet to be announced.</a>\n    \n    {% endif %}\n    \n</div></div></div>\n",
   "type": "Section"
  },
  {

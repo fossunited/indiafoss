@@ -145,7 +145,7 @@
  {
   "breadcrumbs": "",
   "content_type": "HTML",
-  "context_script": "context.days = frappe.db.sql(\"SELECT t.day FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.conference  where c.city = %(city)s and c.year=%(year)s and t.status = 'Confirmed' group by t.day\", args, as_dict=True )\ncontext.day = frappe.form_dict.day or context.days[0].day\nargs['day'] = context.day\n\n\n\ntalks = frappe.db.sql(\"\"\"SELECT t.* FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.conference  where c.city = %(city)s and c.year=%(year)s and t.day = %(day)s and t.status = 'Confirmed' order by t.idx asc\"\"\", args, as_dict=True )\n\nhall1talks = []\n\nfor talk in talks:\n    hall1talks.append(talk)\n\n\ncontext.hall1talks = hall1talks\n\ndef make_talk(title, start_time=\"\", end_time=\"\", is_break=False): \n    return {\n        \"name\": title, \n        \"start_time\": start_time,\n        \"end_time\": end_time,\n        \"break\": is_break\n    }\n    \ndef get_talk_time(talk):\n    return talk['start_time']\n\n\n\n",
+  "context_script": "context.days = frappe.db.sql(\"SELECT t.day FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.conference  where c.city = %(city)s and c.year=%(year)s and t.status = 'Confirmed' group by t.day\", args, as_dict=True )\ncontext.day = frappe.form_dict.day or context.days[0].day\nargs['day'] = context.day\n\ntalks = frappe.db.sql(\"\"\"SELECT t.* FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.conference  where c.city = %(city)s and c.year=%(year)s and t.day = %(day)s and t.status = 'Confirmed' order by t.idx asc\"\"\", args, as_dict=True )\n\nhall1talks = []\n\nfor talk in talks:\n    hall1talks.append(talk)\n\n\ncontext.hall1talks = hall1talks\n\ndef make_talk(title, start_time=\"\", end_time=\"\", is_break=False): \n    return {\n        \"name\": title, \n        \"start_time\": start_time,\n        \"end_time\": end_time,\n        \"break\": is_break\n    }\n    \ndef get_talk_time(talk):\n    return talk['start_time']\n\n\n\n",
   "css": ".talk-card .card-title {\n    font-weight: 600;\n    margin-bottom: 1rem;\n}\n\n.talk-card .meta {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    width: 100%;\n    margin-bottom: 1rem;\n}\n\n.talk-card .category, .talk-card .time {\n    font-size: var(--font-size-xs);\n    display: inline-block;\n    padding: 0.2rem 0.7rem;\n    border-radius: 0.5rem;\n    background-color: var(--gray-100);\n    color: var(--gray-600);\n    font-weight: 500;\n}\n\n.talk-card .category {\n    background-color: var(--green-100);\n    color: var(--green-800);\n}\n\n.talk-card .time {\n    font-size: var(--font-size-sm);\n    color: var(--gray-800);\n}\n\n.talk-card.break {\n    background: #eee;\n}\n\n\n.talk-author {\n    display: flex;\n    align-items: center;\n    gap: 1rem\n}\n\n.talk-author img {\n    width: 4rem;\n    height: 4rem;\n    object-fit: cover;\n    border-radius: 50%;\n}\n\n.talk-author .fullname {\n    font-weight: 500;\n}",
   "docstatus": 0,
   "doctype": "Web Page",
@@ -163,7 +163,7 @@
   "meta_description": null,
   "meta_image": null,
   "meta_title": null,
-  "modified": "2022-09-14 14:21:03.559154",
+  "modified": "2022-09-15 11:55:24.725958",
   "module": "Indiafoss",
   "name": "conference-schedule",
   "page_blocks": [],
