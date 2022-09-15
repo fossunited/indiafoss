@@ -58,8 +58,7 @@
    "fieldname": "day",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Date of the talk",
-   "options": "\n1\n2\n3\n4\n5\n6"
+   "label": "Date of the talk"
   },
   {
    "default": "0",
@@ -143,7 +142,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-14 12:37:42.228256",
+ "modified": "2022-09-15 09:43:38.067325",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Talks",
