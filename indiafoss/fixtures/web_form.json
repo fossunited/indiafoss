@@ -272,7 +272,7 @@
   "apply_document_permissions": 0,
   "breadcrumbs": null,
   "button_label": "Save",
-  "client_script": "$(\"[data-fieldname='conference']\").prop('readonly', true);",
+  "client_script": "$(\"[data-fieldname='conference']\").prop('readonly', true);\n\n\nconst urlParams = new URLSearchParams(window.location.search);\nvar url = '/'\n\nif(urlParams.has('c') && urlParams.has('y')){\n    url = url + urlParams.get('c') + '/' + urlParams.get('y')\n    \n}\n\n\nfrappe.web_form.after_save = () => {\n    window.location.href = url\n }",
   "currency": null,
   "custom_css": null,
   "doc_type": "Conference Talks",
@@ -283,7 +283,7 @@
   "is_standard": 0,
   "login_required": 0,
   "max_attachment_size": 0,
-  "modified": "2022-09-15 12:51:50.898014",
+  "modified": "2022-09-16 16:43:19.255381",
   "module": "Indiafoss",
   "name": "talk",
   "parent": null,
@@ -301,7 +301,7 @@
   "show_sidebar": 0,
   "sidebar_items": [],
   "success_message": null,
-  "success_url": "/talk",
+  "success_url": "",
   "title": "Proposal",
   "web_form_fields": [
    {
