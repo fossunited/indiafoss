@@ -40,7 +40,8 @@
   "cfp_start_date",
   "column_break_32",
   "cfp_end_date",
-  "section_break_34"
+  "section_break_34",
+  "navbar"
  ],
  "fields": [
   {
@@ -226,11 +227,17 @@
   {
    "fieldname": "section_break_34",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "navbar",
+   "fieldtype": "Table",
+   "label": "Navbar",
+   "options": "Conference Navbar"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-14 11:43:53.479553",
+ "modified": "2022-09-16 11:23:10.178133",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
