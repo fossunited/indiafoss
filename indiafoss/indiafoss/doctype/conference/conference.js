@@ -3,6 +3,48 @@
 
 frappe.ui.form.on('Conference', {
 	refresh: function(frm) {
-		frm.dashboard.add_comment("Upload all inages as public, as private files fails to load on website", "red", true)
+		frm.dashboard.add_comment("Upload all images as public, as private files fails to load on website", "red", true)
+	},
+	end_date: function(frm){
+		if(frm.doc.end_date && frm.doc.start_date > frm.doc.end_date){
+			frm.set_value('end_date', '')
+			frappe.throw('End Date should be greater then start date')
+		}
+	},
+
+	validate(frm){
+		try{
+			frm.trigger('start_time_check');
+			frm.trigger('end_time_check');
+			return true
+		}
+		catch(err) {
+			return false
+		}
+	},
+
+	start_date: function(frm){
+		if(frm.doc.start_date && frm.doc.start_date > frm.doc.end_date){
+			frm.set_value('start_date', '')
+			frappe.throw('Start Date should be less then end date')
+		}
+	},
+
+	start_time_check: function(frm){
+		if(frm.doc.start_time && frm.doc.start_time > frm.doc.end_time){
+			frm.set_value('start_time', '')
+			frm.refresh_field('start_time');
+
+			frappe.throw('Start Time should be less then end date')
+		}
+	},
+
+	end_time_check: function(frm){
+		if(frm.doc.end_time && frm.doc.end_time < frm.doc.start_time){
+			frm.set_value('end_time', '')
+			frm.refresh_field('end_time');
+
+			frappe.throw('End Time should be greater then start time')
+		}
 	}
 });
