@@ -1,3 +1,5 @@
+<a href="https://zerodha.tech"><img src="https://zerodha.tech/static/images/github-badge.svg" align="right" /></a>
+
 ## Indiafoss
 
 Free and Open Source Software conference management by the FOSS United community.
