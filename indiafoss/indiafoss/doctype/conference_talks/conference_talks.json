@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "creation": "2022-09-14 10:33:52.664122",
  "doctype": "DocType",
@@ -127,7 +128,8 @@
    "fieldname": "conference",
    "fieldtype": "Link",
    "label": "Conference",
-   "options": "Conference"
+   "options": "Conference",
+   "reqd": 1
   },
   {
    "fieldname": "room_name",
@@ -142,7 +144,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-15 09:43:38.067325",
+ "modified": "2022-11-27 15:48:06.332884",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Talks",

@@ -1,13 +1,12 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:email",
  "creation": "2022-09-06 11:03:45.695351",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "enabled",
   "full_name",
   "email",
   "preferred_name",
@@ -19,12 +18,6 @@
   "website"
  ],
  "fields": [
-  {
-   "default": "0",
-   "fieldname": "enabled",
-   "fieldtype": "Check",
-   "label": "Enabled"
-  },
   {
    "fieldname": "full_name",
    "fieldtype": "Data",
@@ -38,8 +31,7 @@
    "in_list_view": 1,
    "label": "Email",
    "options": "Email",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 1
   },
   {
    "fieldname": "preferred_name",
@@ -84,11 +76,10 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-09-07 19:21:25.779926",
+ "modified": "2022-11-27 15:38:51.901752",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Members",
- "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

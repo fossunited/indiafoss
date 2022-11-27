@@ -4,6 +4,8 @@
 frappe.ui.form.on('Conference', {
 	refresh: function(frm) {
 		frm.dashboard.add_comment("Upload all images as public, as private files fails to load on website", "red", true)
+	        frm.sidebar.add_user_action("See on Website", function(){
+	        }).attr("href", "/" + frm.doc.city + '/' + frm.doc.year).attr("target", "_blank")
 	},
 	end_date: function(frm){
 		if(frm.doc.end_date && frm.doc.start_date > frm.doc.end_date){
