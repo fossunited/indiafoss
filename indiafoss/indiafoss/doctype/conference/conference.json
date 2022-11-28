@@ -245,7 +245,8 @@
    "fieldname": "email",
    "fieldtype": "Data",
    "label": "Email",
-   "options": "Email"
+   "options": "Email",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -255,7 +256,7 @@
    "link_fieldname": "conference"
   }
  ],
- "modified": "2022-11-28 15:35:58.995155",
+ "modified": "2022-11-28 16:13:00.737147",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
