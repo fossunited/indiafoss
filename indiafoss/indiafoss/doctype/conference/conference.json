@@ -42,7 +42,8 @@
   "column_break_32",
   "cfp_end_date",
   "section_break_34",
-  "navbar"
+  "navbar",
+  "code_36"
  ],
  "fields": [
   {
@@ -234,11 +235,20 @@
    "fieldtype": "Table",
    "label": "Navbar",
    "options": "Conference Navbar"
+  },
+  {
+   "fieldname": "code_36",
+   "fieldtype": "Code"
   }
  ],
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2022-11-27 15:29:43.097594",
+ "links": [
+  {
+   "link_doctype": "Conference Talks",
+   "link_fieldname": "conference"
+  }
+ ],
+ "modified": "2022-11-28 12:25:32.949070",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
