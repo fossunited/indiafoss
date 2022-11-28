@@ -2,7 +2,7 @@
  {
   "breadcrumbs": null,
   "content_type": "Page Builder",
-  "context_script": "no_cache = 1\nno_sitemap = 1\n\ncontext.title = frappe.db.sql(\"\"\"SELECT title from \"tabConference\" where lower(city) = %(city)s and year=%(year)s\"\"\", args, as_dict=True)[0].title",
+  "context_script": "no_cache = 1\nno_sitemap = 1\n\ncontext.title = frappe.db.sql(\"\"\"SELECT title from `tabConference` where lower(city) = %(city)s and year=%(year)s\"\"\", args, as_dict=True)[0].title",
   "css": ".section-cta {\n    background-color: rgb(0,0,0);\n}\n.section-cta .title {\n    font-size: 2.25rem;\n    color:rgb(255,255,255);\n}\n\n.logo {\n    display: inline-block;\n    max-width: 150px;\n    max-height: 50px;\n}",
   "docstatus": 0,
   "doctype": "Web Page",
@@ -20,7 +20,7 @@
   "meta_description": null,
   "meta_image": null,
   "meta_title": null,
-  "modified": "2022-11-27 16:09:39.335940",
+  "modified": "2022-11-28 08:47:50.885545",
   "module": "Indiafoss",
   "name": "conference",
   "page_blocks": [
