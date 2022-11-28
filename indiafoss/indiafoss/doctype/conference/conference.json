@@ -8,6 +8,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "email",
   "city",
   "title",
   "logo",
@@ -239,6 +240,12 @@
   {
    "fieldname": "code_36",
    "fieldtype": "Code"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -248,7 +255,7 @@
    "link_fieldname": "conference"
   }
  ],
- "modified": "2022-11-28 12:25:32.949070",
+ "modified": "2022-11-28 15:35:58.995155",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
