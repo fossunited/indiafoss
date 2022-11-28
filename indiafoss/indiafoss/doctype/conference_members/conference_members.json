@@ -76,7 +76,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-11-27 15:38:51.901752",
+ "modified": "2022-11-28 10:40:17.098528",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Members",
@@ -95,7 +95,10 @@
    "write": 1
   }
  ],
+ "search_fields": "email",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "full_name"
 }
