@@ -270,7 +270,7 @@
   "list_title": null,
   "login_required": 0,
   "max_attachment_size": 0,
-  "modified": "2022-09-21 17:53:43.646304",
+  "modified": "2022-11-28 15:25:34.957592",
   "module": "Indiafoss",
   "name": "talk",
   "print_format": null,
@@ -344,7 +344,7 @@
     "parenttype": "Web Form",
     "read_only": 0,
     "read_only_depends_on": null,
-    "reqd": 0,
+    "reqd": 1,
     "show_in_filter": 0
    },
    {
@@ -407,7 +407,7 @@
     "parenttype": "Web Form",
     "read_only": 0,
     "read_only_depends_on": null,
-    "reqd": 0,
+    "reqd": 1,
     "show_in_filter": 0
    },
    {
@@ -428,7 +428,7 @@
     "parenttype": "Web Form",
     "read_only": 0,
     "read_only_depends_on": null,
-    "reqd": 0,
+    "reqd": 1,
     "show_in_filter": 0
    },
    {

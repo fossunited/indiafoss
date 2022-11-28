@@ -107,7 +107,8 @@
   {
    "fieldname": "email",
    "fieldtype": "Data",
-   "label": "Email"
+   "label": "Email",
+   "options": "Email"
   },
   {
    "fieldname": "phone_number",
@@ -144,7 +145,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-11-27 15:48:06.332884",
+ "modified": "2022-11-28 15:12:08.564828",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Talks",
