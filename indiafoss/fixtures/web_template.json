@@ -25,33 +25,33 @@
   "docstatus": 0,
   "doctype": "Web Template",
   "fields": [],
-  "modified": "2022-11-27 13:44:35.466352",
+  "modified": "2022-12-03 20:35:22.515650",
   "module": "Indiafoss",
   "name": "Conference Title",
   "standard": 0,
-  "template": "{% set conference = frappe.db.sql(\"SELECT title, subtitle, venu, action_button_url, action_button_label, start_date, end_date, logo FROM `tabConference` where lower(city) =lower(%(city)s) and year=%(year)s \", args, as_dict=true )%}\n{% set talks = frappe.db.sql(\"SELECT t.name FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.conference  where lower(c.city) = lower(%(city)s) and c.year=%(year)s limit 1\", args, as_dict=True )%}\n{% set navbar = frappe.db.sql(\"SELECT n.name, n.label, n.link FROM `tabConference` c inner JOIN `tabConference Navbar` n on c.name = n.parent  where lower(c.city) = lower(%(city)s) and c.year=%(year)s\", args, as_dict=True ) %}\n\n<a class=\"logo section-padding-bottom\" href=\"/{{ args.city }}/{{args.year}}\"> {% if conference[0].logo %} <img src=\"{{ conference[0].logo }}\"> {% endif %} </a>\n\n<div class=\"hero\">\n<div class=\"hero-content\">\n<h1 class=\"hero-title\">{{ conference[0].title }}</h1><p class=\"hero-subtitle\">\n\t\t\t{{ conference[0].subtitle }} <br><br>\n<strong onclick=\"venue()\"><span id=\"eventDate\"> </span> | {{ conference[0].venu }}</strong>\n</p>\n    \n    <div class=\"hero-buttons\">\n        {% if talks %}\n        <a class=\"btn btn-lg btn-primary\" href=\"/{{ args.city }}/{{args.year}}/schedule?t={{ conference[0].title}}\">\n\t\t\t\tSchedule\n\t    </a>\n\t    {% endif %}\n\t    {% if conference[0].action_button_label %}\n\t    <a class=\"btn btn-lg btn-primary-light\" href=\"{{ conference[0].action_button_url }}\">{{ conference[0].action_button_label }}</a>\n\t    {% endif %}\n\t</div>\n\t\n\t</div>\n</div>\n<script> formatDateRange(\"{{ conference[0].start_date}}\", \"{{ conference[0].end_date }}\", \"eventDate\") \n{% if navbar %}\n$('.ml-auto').append(`<li class=\"nav-item dropdown\">\n<a aria-expanded=\"false\" aria-haspopup=\"true\" class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" id=\"id-bffabbc03e75\" role=\"button\">\n\t\tHome\n\t</a>\n<ul aria-labelledby=\"\" class=\"dropdown-menu\">\n\t{% for nav in navbar %}\n\n<a class=\"dropdown-item\" href=\"{{ nav.link }}\">\n\t{{ nav.label }}\n</a>\n{% endfor %}\n\n</ul>\n</li>`)\n{% endif %}\n</script>\n",
+  "template": "{% set conference = frappe.db.sql(\"SELECT title, subtitle, venu, action_button_url, primary_action_button_label, primary_action_button_url, action_button_label, start_date, end_date, logo FROM `tabConference` where lower(city) =lower(%(city)s) and year=%(year)s \", args, as_dict=true )%}\n{% set talks = frappe.db.sql(\"SELECT t.name FROM `tabConference` c inner JOIN `tabConference Talks` t on c.name = t.conference  where lower(c.city) = lower(%(city)s) and c.year=%(year)s limit 1\", args, as_dict=True )%}\n{% set navbar = frappe.db.sql(\"SELECT n.name, n.label, n.link FROM `tabConference` c inner JOIN `tabConference Navbar` n on c.name = n.parent  where lower(c.city) = lower(%(city)s) and c.year=%(year)s\", args, as_dict=True ) %}\n\n<a class=\"logo section-padding-bottom\" href=\"/{{ args.city }}/{{args.year}}\"> {% if conference[0].logo %} <img src=\"{{ conference[0].logo }}\"> {% endif %} </a>\n\n<div class=\"hero\">\n<div class=\"hero-content\">\n<h1 class=\"hero-title\">{{ conference[0].title }}</h1><p class=\"hero-subtitle\">\n\t\t\t{{ conference[0].subtitle }} <br><br>\n<strong onclick=\"venue()\"><span id=\"eventDate\"> </span> | {{ conference[0].venu }}</strong>\n</p>\n    \n    <div class=\"hero-buttons\">\n        {% if conference[0].primary_action_button_label %}\n        <a class=\"btn btn-lg btn-primary\" href=\"{{ conference[0].primary_action_button_url}}\">\n\t\t\t\t{{ conference[0].primary_action_button_label }}\n\t    </a>\n\t    {% endif %}\n\t    {% if conference[0].action_button_label %}\n\t    <a class=\"btn btn-lg btn-primary-light\" href=\"{{ conference[0].action_button_url }}\">{{ conference[0].action_button_label }}</a>\n\t    {% endif %}\n\t</div>\n\t\n\t</div>\n</div>\n<script> formatDateRange(\"{{ conference[0].start_date}}\", \"{{ conference[0].end_date }}\", \"eventDate\") \n{% if navbar %}\n$('.ml-auto').append(`<li class=\"nav-item dropdown\">\n<a aria-expanded=\"false\" aria-haspopup=\"true\" class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\" id=\"id-bffabbc03e75\" role=\"button\">\n\t\tHome\n\t</a>\n<ul aria-labelledby=\"\" class=\"dropdown-menu\">\n\t{% for nav in navbar %}\n\n<a class=\"dropdown-item\" href=\"{{ nav.link }}\">\n\t{{ nav.label }}\n</a>\n{% endfor %}\n\n</ul>\n</li>`)\n{% endif %}\n</script>\n",
   "type": "Section"
  },
  {
   "docstatus": 0,
   "doctype": "Web Template",
   "fields": [],
-  "modified": "2022-09-07 17:30:02.815073",
+  "modified": "2022-12-03 20:38:46.933590",
   "module": "Indiafoss",
   "name": "Conference Sponsors",
   "standard": 0,
-  "template": "{% set sponsors = frappe.db.sql(\"SELECT s.link, s.image, c.sponsors_title FROM `tabConference` c inner JOIN `tabConference Sponsors` s on c.name = s.parent  where lower(c.city) = lower(%(city)s) and c.year=%(year)s \", args, as_dict=true )%}\n{% if sponsors %}\n<div class=\"section-padding-bottom\">\n<h2 class=\"section-title\">Sponsors</h2>\n<p class=\"section-description\">{{ sponsors[0].sponsors_title }} \n\n<div class=\"row mt-5 mx-md-n3 align-items-center\">\n{% for sponsor in sponsors %}\n\n    <div class=\"col-6 col-md-4 col-xs-12 py-2 p-md-3\">\n        <a href=\"{{ sponsor.link }}\" rel=\"noopener noreferrer\" target=\"blank\">\n            <img alt=\"{{ sponsor.company }}\" src=\"{{ sponsor.image }}\">\n        </a>\n</div>\n{% endfor %}\n</div>\n</div>\n{% endif %}",
+  "template": "{% set sponsors = frappe.db.sql(\"SELECT s.link, s.image, c.sponsors_title FROM `tabConference` c inner JOIN `tabConference Sponsors` s on c.name = s.parent  where lower(c.city) = lower(%(city)s) and c.year=%(year)s order by s.idx\", args, as_dict=true )%}\n{% if sponsors %}\n<div class=\"section-padding-bottom\">\n<h2 class=\"section-title\">Sponsors</h2>\n<p class=\"section-description\">{{ sponsors[0].sponsors_title }} \n\n<div class=\"row mt-5 mx-md-n3 align-items-center\">\n{% for sponsor in sponsors %}\n\n    <div class=\"col-6 col-md-4 col-xs-12 py-2 p-md-3\">\n        <a href=\"{{ sponsor.link }}\" rel=\"noopener noreferrer\" target=\"blank\">\n            <img alt=\"{{ sponsor.company }}\" src=\"{{ sponsor.image }}\">\n        </a>\n</div>\n{% endfor %}\n</div>\n</div>\n{% endif %}",
   "type": "Section"
  },
  {
   "docstatus": 0,
   "doctype": "Web Template",
   "fields": [],
-  "modified": "2022-09-07 17:31:05.919202",
+  "modified": "2022-12-03 20:37:12.894211",
   "module": "Indiafoss",
   "name": "Conference Partners",
   "standard": 0,
-  "template": "{% set partners = frappe.db.sql(\"SELECT s.link, s.image, c.partners_title FROM `tabConference` c inner JOIN `tabConference Partners` s on c.name = s.parent  where lower(c.city) = lower(%(city)s) and c.year=%(year)s \", args, as_dict=true )%}\n\n{% if partners %}\n<div class=\"section-padding-bottom\">\n<h2 class=\"section-title\">Community Partners</h2>\n<p class=\"section-description\">{{ partners[0].partners_title }}\n\n<div class=\"row mt-5 mx-md-n3 align-items-center\">\n{% for partner in partners %}\n    <div class=\"col-4 col-md-2 py-2 p-md-3\">\n        <a href=\"{{ partner.link }}\" rel=\"noopener noreferrer\" target=\"blank\">\n            <img alt=\"{{ partner.company }}\" src=\"{{ partner.image }}\">\n        </a>\n    </div>\n\n{% endfor %}\n</div>\n</div>\n{% endif %}",
+  "template": "{% set partners = frappe.db.sql(\"SELECT s.link, s.image, c.partners_title FROM `tabConference` c inner JOIN `tabConference Partners` s on c.name = s.parent  where lower(c.city) = lower(%(city)s) and c.year=%(year)s order by s.idx\", args, as_dict=true )%}\n\n{% if partners %}\n<div class=\"section-padding-bottom\">\n<h2 class=\"section-title\">Community Partners</h2>\n<p class=\"section-description\">{{ partners[0].partners_title }}\n\n<div class=\"row mt-5 mx-md-n3 align-items-center\">\n{% for partner in partners %}\n    <div class=\"col-4 col-md-2 py-2 p-md-3\">\n        <a href=\"{{ partner.link }}\" rel=\"noopener noreferrer\" target=\"blank\">\n            <img alt=\"{{ partner.company }}\" src=\"{{ partner.image }}\">\n        </a>\n    </div>\n\n{% endfor %}\n</div>\n</div>\n{% endif %}",
   "type": "Section"
  },
  {
@@ -107,6 +107,17 @@
   "name": "Conference Submissions",
   "standard": 0,
   "template": "{% set cfp = frappe.db.sql(\"\"\"SELECT t.*, c.year, c.city from `tabConference Talks` as t inner join `tabConference` as c on t.conference = c.name where lower(c.city)=lower(%(city)s) and c.year = %(year)s and is_break = 0 order by title\"\"\", args, as_dict=True)%}\n\n<!--<div class=\"my-6\">-->\n<!--    <a>CFP for IndiaFOSS2.0 is closed</a>-->\n<!--</div>-->\n\n<div class=\"row\">\n    <h2 class=\"section-title col\">Submissions - Call for proposal {{ cfp[0]['year'] }}</h2>\n    <!--<a class=\"btn btn-primary col\" style=\"padding-left: 50px;\" href=\"/2022/cfp?new=1\" role=\"button\">Submit your proposal</a>-->\n</div>\n<!--{% if page_subtitle %}-->\n<!--<p class=\"section-description\">{{ page_subtitle }}</p>-->\n<!--{% endif %}-->\n\n<div class=\"row\">\n{% for proposal in cfp %}\n  <div class=\"d-flex flex-column col-md-4 mb-6 mt-6\">\n    <h4 class=\"card-title\">{{ proposal.title | truncate (50) }}</h4>\n    <div class=\"row\">\n        <p class=\"text-muted col \" style=\"margin-top: auto;\">{{ frappe.utils.format_duration(proposal.expected_duration_of_talk) }}</p>\n    </div>\n    <a class='stretched-link' href=\"/{{proposal.city}}/{{proposal.year}}/talk/{{ proposal.name }}\"></a>\n  </div>\n{% endfor %}\n</div>\n<div class=\"py-3\"></div>\n",
+  "type": "Section"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Web Template",
+  "fields": [],
+  "modified": "2022-12-03 20:28:22.029300",
+  "module": "Indiafoss",
+  "name": "CTA",
+  "standard": 0,
+  "template": "{% set cta = frappe.db.sql(\"SELECT c.cta_title, c.cta_action_label, c.cta_url FROM `tabConference` c where lower(c.city) = lower(%(city)s) and c.year=%(year)s limit 1\", args, as_dict=True )%}\n<div class=\"section-cta-container\">\n<div class=\"section-cta\">\n<h2 class=\"title\">{{ cta[0].cta_title }}</h2><div class=\"mt-6\">\n        <a class=\"btn btn-lg btn-primary\" href=\"{{ cta[0].cta_url }}\">{{ cta[0].cta_action_label }}</a>\n    \n</div></div></div>\n",
   "type": "Section"
  }
 ]

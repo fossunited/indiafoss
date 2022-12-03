@@ -20,7 +20,7 @@
   "meta_description": null,
   "meta_image": null,
   "meta_title": null,
-  "modified": "2022-11-28 16:43:11.752665",
+  "modified": "2022-12-03 20:29:11.791947",
   "module": "Indiafoss",
   "name": "conference",
   "page_blocks": [
@@ -111,24 +111,6 @@
     "parentfield": "page_blocks",
     "parenttype": "Web Page",
     "section_id": null,
-    "web_template": "Conference Talk Proposal",
-    "web_template_values": null
-   },
-   {
-    "add_background_image": 0,
-    "add_border_at_bottom": 0,
-    "add_border_at_top": 0,
-    "add_bottom_padding": 0,
-    "add_container": 1,
-    "add_shade": 0,
-    "add_top_padding": 0,
-    "background_image": null,
-    "css_class": null,
-    "hide_block": 0,
-    "parent": "conference",
-    "parentfield": "page_blocks",
-    "parenttype": "Web Page",
-    "section_id": null,
     "web_template": "Conference Venue",
     "web_template_values": null
    },
@@ -165,7 +147,7 @@
     "parentfield": "page_blocks",
     "parenttype": "Web Page",
     "section_id": null,
-    "web_template": "Conference Schedule",
+    "web_template": "CTA",
     "web_template_values": null
    }
   ],

@@ -20,8 +20,10 @@
   "end_date",
   "end_time",
   "section_break_9",
+  "primary_action_button_label",
   "action_button_label",
   "column_break_11",
+  "primary_action_button_url",
   "action_button_url",
   "section_break_6",
   "description",
@@ -43,8 +45,14 @@
   "column_break_32",
   "cfp_end_date",
   "section_break_34",
-  "navbar",
-  "code_36"
+  "cta_section",
+  "cta_title",
+  "column_break_38",
+  "cta_action_label",
+  "column_break_40",
+  "cta_url",
+  "section_break_42",
+  "navbar"
  ],
  "fields": [
   {
@@ -91,12 +99,12 @@
   {
    "fieldname": "sponsors_title",
    "fieldtype": "Data",
-   "label": "Sponsors Sub Title"
+   "label": "Sponsors Subtitle"
   },
   {
    "fieldname": "partners_title",
    "fieldtype": "Data",
-   "label": "Partners Sub Title"
+   "label": "Partners Subtitle"
   },
   {
    "fieldname": "venu",
@@ -106,7 +114,7 @@
   {
    "fieldname": "venu_details",
    "fieldtype": "Text",
-   "label": "Venu Address Details"
+   "label": "Venue Address Details"
   },
   {
    "description": "Event start time",
@@ -178,7 +186,7 @@
   {
    "fieldname": "action_button_url",
    "fieldtype": "Data",
-   "label": "Action Button URL",
+   "label": "Secondary Action Button URL",
    "options": "URL"
   },
   {
@@ -189,7 +197,7 @@
    "description": "Secondary action button",
    "fieldname": "action_button_label",
    "fieldtype": "Data",
-   "label": "Action Button Label"
+   "label": "Secondary Action Button Label"
   },
   {
    "fieldname": "end_date",
@@ -238,15 +246,58 @@
    "options": "Conference Navbar"
   },
   {
-   "fieldname": "code_36",
-   "fieldtype": "Code"
-  },
-  {
    "fieldname": "email",
    "fieldtype": "Data",
    "label": "Email",
    "options": "Email",
    "reqd": 1
+  },
+  {
+   "fieldname": "cta_title",
+   "fieldtype": "Data",
+   "label": "CTA Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cta_action_label",
+   "fieldtype": "Data",
+   "label": "CTA Action Label",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cta_url",
+   "fieldtype": "Data",
+   "label": "CTA Url",
+   "options": "URL",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cta_section",
+   "fieldtype": "Section Break",
+   "label": "CTA"
+  },
+  {
+   "fieldname": "column_break_38",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_40",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_42",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "primary_action_button_label",
+   "fieldtype": "Data",
+   "label": "Primary Action Button Label"
+  },
+  {
+   "fieldname": "primary_action_button_url",
+   "fieldtype": "Data",
+   "label": "Primary Action Button URL",
+   "options": "URL"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -256,7 +307,7 @@
    "link_fieldname": "conference"
   }
  ],
- "modified": "2022-11-28 16:13:00.737147",
+ "modified": "2022-12-03 20:40:43.677944",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
