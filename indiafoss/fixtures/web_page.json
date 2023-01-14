@@ -288,7 +288,7 @@
  {
   "breadcrumbs": null,
   "content_type": "Page Builder",
-  "context_script": "doc_id = frappe.form_dict.docname\n\nfrappe.db.set_value('Conference Payment', doc_id, 'payment_captured', True)\n\nconference_id = frappe.db.get_value('Conference Payment', doc_id, 'conference')\n\n# increase tickets booked count\ntickets_booked = frappe.db.get_value('Conference', conference_id, 'tickets_booked')\nfrappe.db.set_value('Conference', conference_id, 'tickets_booked', tickets_booked + 1)\n\nfrappe.db.commit()",
+  "context_script": "doc_id = frappe.form_dict.docname\n\n# Verify payment\nexists = frappe.db.exists('Integration Request', {\n    \"reference_doctype\": \"Conference Payment\",\n    \"reference_docname\": doc_id,\n    \"status\": \"Authorized\",\n})\n\n\nif exists:\n    frappe.db.set_value('Conference Payment', doc_id, 'payment_captured', True)\n    \n    conference_id = frappe.db.get_value('Conference Payment', doc_id, 'conference')\n    \n    # increase tickets booked count\n    tickets_booked, student_t, general_t = frappe.db.get_value('Conference', conference_id, ['tickets_booked', 'student_tickets', 'general_tickets'])\n    \n    frappe.db.set_value('Conference', conference_id, 'tickets_booked', tickets_booked + student_t + general_t)\n    \n    frappe.db.commit()\nelse:\n    frappe.throw(\"Payment failed\")",
   "css": null,
   "docstatus": 0,
   "doctype": "Web Page",
@@ -306,7 +306,7 @@
   "meta_description": null,
   "meta_image": null,
   "meta_title": null,
-  "modified": "2023-01-14 15:49:40.506573",
+  "modified": "2023-01-14 20:52:53.724165",
   "module": "Indiafoss",
   "name": "payment-success",
   "page_blocks": [
