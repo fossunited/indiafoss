@@ -22,8 +22,8 @@ def get_ticket_data(doc_name):
         ],
     )
     return {
-		'student_ticket_price': st_price,
-		'general_ticket_price': gen_price,
-		'max_tickets': max_tickets,
-		'tickets_booked': tickets_booked,
-	}
+        'student_ticket_price': st_price,
+        'general_ticket_price': gen_price,
+        'max_tickets': max_tickets,
+        'tickets_booked': tickets_booked,
+    }

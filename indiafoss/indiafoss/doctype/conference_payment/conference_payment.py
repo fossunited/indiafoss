@@ -10,4 +10,4 @@ class ConferencePayment(Document):
     def on_payment_authorized(self, payment_status):
         if payment_status == "Authorized":
             self.payment_captured = 1
-            self.save()
+            self.save(ignore_permissions=True)
