@@ -20,6 +20,11 @@
   "end_date",
   "end_time",
   "section_break_9",
+  "general_ticket_price",
+  "student_ticket_price",
+  "max_tickets",
+  "tickets_booked",
+  "section_break_0",
   "primary_action_button_label",
   "action_button_label",
   "column_break_11",
@@ -298,6 +303,39 @@
    "fieldtype": "Data",
    "label": "Primary Action Button URL",
    "options": "URL"
+  },
+  {
+   "fieldname": "section_break_0",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "general_ticket_price",
+   "fieldtype": "Currency",
+   "label": "General ticket price",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "student_ticket_price",
+   "fieldtype": "Currency",
+   "label": "Student ticket price",
+   "non_negative": 1,
+   "precision": "2"
+  },
+  {
+   "fieldname": "max_tickets",
+   "fieldtype": "Int",
+   "label": "Maximum tickets",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "tickets_booked",
+   "fieldtype": "Int",
+   "label": "Tickets booked"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -307,7 +345,7 @@
    "link_fieldname": "conference"
   }
  ],
- "modified": "2022-12-03 20:40:43.677944",
+ "modified": "2023-01-14 15:47:51.463746",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
