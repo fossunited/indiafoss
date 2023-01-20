@@ -12,6 +12,8 @@
   "uname",
   "email",
   "phone",
+  "pincode",
+  "state",
   "student_tickets",
   "general_tickets",
   "total_amount",
@@ -88,11 +90,24 @@
    "fieldname": "payment_captured",
    "fieldtype": "Check",
    "label": "Payment captured"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Select",
+   "label": "State",
+   "options": "Andaman and Nicobar Islands\nAndhra Pradesh\nArunachal Pradesh\nAssam\nBihar\nChandigarh\nChhattisgarh\nDadra and Nagar Haveli and Daman and Diu\nDelhi\nGoa\nGujarat\nHaryana\nHimachal Pradesh\nJammu and Kashmir\nJharkhand\nKarnataka\nKerala\nLadakh\nLakshadweep Islands\nMadhya Pradesh\nMaharashtra\nManipur\nMeghalaya\nMizoram\nNagaland\nOdisha\nOther Territory\nPondicherry\nPunjab\nRajasthan\nSikkim\nTamil Nadu\nTelangana\nTripura\nUttar Pradesh\nUttarakhand\nWest Bengal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Pincode",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-01-14 20:55:35.486778",
+ "modified": "2023-01-20 19:34:30.750723",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Payment",
