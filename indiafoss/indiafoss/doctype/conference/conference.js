@@ -12,6 +12,9 @@ frappe.ui.form.on('Conference', {
 
 	        frm.sidebar.add_user_action("CFP Link", function(){
 	        }).attr("href", "/proposal/new?conference=" + frm.doc.name + '&c=' + frm.doc.city + '&y='+ frm.doc.year + '&t=' + frm.doc.title).attr("target", "_blank")
+
+			frm.sidebar.add_user_action("Payment page Link", function(){
+	        }).attr("href", "/book-tickets/new?conference=" + frm.doc.name).attr("target", "_blank")
 	},
 	end_date: function(frm){
 		if(frm.doc.end_date && frm.doc.start_date > frm.doc.end_date){

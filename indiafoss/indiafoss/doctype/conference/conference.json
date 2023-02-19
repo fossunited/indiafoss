@@ -344,9 +344,13 @@
   {
    "link_doctype": "Conference Talks",
    "link_fieldname": "conference"
+  },
+  {
+   "link_doctype": "Conference Payment",
+   "link_fieldname": "conference"
   }
  ],
- "modified": "2023-01-26 15:56:37.654843",
+ "modified": "2023-02-19 13:03:50.736749",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
