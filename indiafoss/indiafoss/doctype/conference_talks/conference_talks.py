@@ -11,11 +11,21 @@ class ConferenceTalks(Document):
 
     def before_insert(self):
         """Before insert validation."""
-        start, end, title = frappe.db.get_value(
-            "Conference", self.conference, ["cfp_start_date", "cfp_end_date", "title"]
-        )
-        today = frappe.utils.data.today()
-        if today >= str(start) and today <= str(end):
-            pass
-        else:
-            frappe.throw(f"<b>{title}</b> has stopped accepting proposals, for more details contact <b>Admin</b>")
+        if not is_accepting_proposals():
+            title = frappe.db.get_value("Conference", self.conference, "title")
+            frappe.throw(
+                f"<b>{title}</b> conference has stopped accepting proposals, for more details contact <b>Admin</b>"
+            )
+
+
+@frappe.whitelist(allow_guest=True)
+def is_accepting_proposals(conference):
+    """Check if conference is accept proposals or not"""
+    start, end = frappe.db.get_value(
+        "Conference", conference, ["cfp_start_date", "cfp_end_date"]
+    )
+    today = frappe.utils.data.today()
+    if today >= str(start) and today <= str(end):
+        return True
+    else:
+        return False
