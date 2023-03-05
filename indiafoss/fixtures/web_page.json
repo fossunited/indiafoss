@@ -288,7 +288,7 @@
  {
   "breadcrumbs": null,
   "content_type": "Page Builder",
-  "context_script": "doc_id = frappe.form_dict.docname\n\n# Verify payment\nexists_auth = frappe.db.exists('Integration Request', {\n    \"reference_doctype\": \"Conference Payment\",\n    \"reference_docname\": doc_id,\n    \"status\": \"Authorized\",\n})\nexists_completed = frappe.db.exists('Integration Request', {\n    \"reference_doctype\": \"Conference Payment\",\n    \"reference_docname\": doc_id,\n    \"status\": \"Completed\",\n})\nalready_captured = frappe.db.get_value('Conference Payment', doc_id, 'payment_captured')\n\n\nif exists_auth or exists_completed:\n    \n    if not already_captured:\n        frappe.db.set_value('Conference Payment', doc_id, 'payment_captured', True)\n        \n        payment_data = frappe.db.sql(\"select conference, student_tickets, general_tickets from `tabConference Payment` where name = %s\", (doc_id), as_dict=1)\n        \n        if not payment_data:\n            frappe.throw('payment data not found')\n        \n        payment_data = payment_data[0]\n        \n        # increase tickets booked count\n        tickets_booked = frappe.db.get_value('Conference', payment_data.conference, 'tickets_booked')\n        \n        frappe.db.set_value('Conference', payment_data.conference, 'tickets_booked', tickets_booked + payment_data.student_tickets + payment_data.general_tickets)\n        \n        frappe.db.commit()\nelse:\n    frappe.throw(\"Payment failed\")",
+  "context_script": "",
   "css": null,
   "docstatus": 0,
   "doctype": "Web Page",
@@ -306,7 +306,7 @@
   "meta_description": null,
   "meta_image": null,
   "meta_title": null,
-  "modified": "2023-03-05 21:02:20.154118",
+  "modified": "2023-03-05 21:15:28.833303",
   "module": "Indiafoss",
   "name": "payment-success",
   "page_blocks": [
