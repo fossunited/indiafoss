@@ -8,7 +8,9 @@ from frappe.model.document import Document
 
 class ConferencePayment(Document):
     def validate(self):
+        self.validate_amounts()
 
+    def validate_amounts(self):
         db_gen_ticket_price, db_st_ticket_price = frappe.db.get_value(
             "Conference",
             self.conference,
@@ -31,6 +33,7 @@ class ConferencePayment(Document):
 
     def on_payment_authorized(self, payment_status):
         if payment_status == "Authorized":
+            self.validate_amounts()
             self.payment_captured = 1
 
             # increase tickets booked count
