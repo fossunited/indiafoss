@@ -11,7 +11,7 @@ class ConferenceTalks(Document):
 
     def before_insert(self):
         """Before insert validation."""
-        if not is_accepting_proposals():
+        if not is_accepting_proposals(self.conference):
             title = frappe.db.get_value("Conference", self.conference, "title")
             frappe.throw(
                 f"<b>{title}</b> conference has stopped accepting proposals, for more details contact <b>Admin</b>"
