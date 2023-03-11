@@ -27,6 +27,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Organization or College Name",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -34,6 +35,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Name",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -41,6 +43,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Email",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -48,33 +51,39 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Phone",
+   "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "total_amount",
    "fieldtype": "Currency",
+   "read_only": 1,
    "label": "Total amount"
   },
   {
    "fieldname": "conference",
    "fieldtype": "Link",
    "label": "Conference",
-   "options": "Conference"
+   "options": "Conference",
+   "read_only": 1
   },
   {
    "fieldname": "general_ticket_price",
    "fieldtype": "Currency",
+   "read_only": 1,
    "label": "General ticket price"
   },
   {
    "fieldname": "student_ticket_price",
    "fieldtype": "Currency",
+   "read_only": 1,
    "label": "Student ticket price"
   },
   {
    "default": "0",
    "fieldname": "student_tickets",
    "fieldtype": "Int",
+   "read_only": 1,
    "label": "Student tickets",
    "non_negative": 1
   },
@@ -82,6 +91,7 @@
    "default": "0",
    "fieldname": "general_tickets",
    "fieldtype": "Int",
+   "read_only": 1,
    "label": "General tickets",
    "non_negative": 1
   },
@@ -89,25 +99,28 @@
    "default": "0",
    "fieldname": "payment_captured",
    "fieldtype": "Check",
+   "read_only": 1,
    "label": "Payment captured"
   },
   {
    "fieldname": "state",
    "fieldtype": "Select",
    "label": "State",
+   "read_only": 1, 
    "options": "Andaman and Nicobar Islands\nAndhra Pradesh\nArunachal Pradesh\nAssam\nBihar\nChandigarh\nChhattisgarh\nDadra and Nagar Haveli and Daman and Diu\nDelhi\nGoa\nGujarat\nHaryana\nHimachal Pradesh\nJammu and Kashmir\nJharkhand\nKarnataka\nKerala\nLadakh\nLakshadweep Islands\nMadhya Pradesh\nMaharashtra\nManipur\nMeghalaya\nMizoram\nNagaland\nOdisha\nOther Territory\nPondicherry\nPunjab\nRajasthan\nSikkim\nTamil Nadu\nTelangana\nTripura\nUttar Pradesh\nUttarakhand\nWest Bengal",
    "reqd": 1
   },
   {
    "fieldname": "pincode",
    "fieldtype": "Data",
+   "read_only": 1,
    "label": "Pincode",
    "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-01-20 19:34:30.750723",
+ "modified": "2023-03-11 15:12:17.828329",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Payment",
