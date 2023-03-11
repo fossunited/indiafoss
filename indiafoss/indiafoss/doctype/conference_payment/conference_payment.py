@@ -7,8 +7,30 @@ from frappe.model.document import Document
 
 
 class ConferencePayment(Document):
-    def validate(self):
+
+    def before_insert(self):
         self.validate_amounts()
+        self.validate_ticket_count()
+
+    def validate_ticket_count(self):
+        # total tickets requesed for this payment
+        tickets_requested = int(self.student_tickets) + int(self.general_tickets)
+
+        if tickets_requested == 0:
+            frappe.throw("Please select atleast one ticket to proceed.")
+
+        max_tickets, tickets_booked = frappe.db.get_value(
+            "Conference", self.conference, ["max_tickets", "tickets_booked"]
+        )
+
+        remaining_tickets = max_tickets - tickets_booked
+        remaining_tickets = 0 if remaining_tickets < 0 else remaining_tickets
+
+        if tickets_requested > remaining_tickets:
+            frappe.throw(
+                f"{remaining_tickets} tickets left for {self.conference} conference,\
+                you are trying to book more."
+            )
 
     def validate_amounts(self):
         db_gen_ticket_price, db_st_ticket_price = frappe.db.get_value(
@@ -32,8 +54,10 @@ class ConferencePayment(Document):
             frappe.throw("total mismatch, please contact admin")
 
     def on_payment_authorized(self, payment_status):
-        if payment_status == "Authorized":
+        # Run this when payment is authorized & not marked captured
+        if payment_status == "Authorized" and self.payment_captured == 0:
             self.validate_amounts()
+
             self.payment_captured = 1
 
             # increase tickets booked count
