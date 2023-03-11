@@ -22,6 +22,7 @@
   "section_break_9",
   "general_ticket_price",
   "student_ticket_price",
+  "column_break_15",
   "max_tickets",
   "tickets_booked",
   "section_break_0",
@@ -337,6 +338,10 @@
    "fieldtype": "Int",
    "label": "Tickets booked",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_15",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -350,7 +355,7 @@
    "link_fieldname": "conference"
   }
  ],
- "modified": "2023-02-19 13:03:50.736749",
+ "modified": "2023-03-11 15:19:19.586355",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
