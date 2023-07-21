@@ -7,6 +7,8 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "razorpay_order_id",
+  "razorpay_payment_id",
   "organization",
   "conference",
   "uname",
@@ -57,70 +59,82 @@
   {
    "fieldname": "total_amount",
    "fieldtype": "Currency",
-   "read_only": 1,
-   "label": "Total amount"
+   "label": "Total amount",
+   "read_only": 1
   },
   {
    "fieldname": "conference",
    "fieldtype": "Link",
    "label": "Conference",
    "options": "Conference",
-   "read_only": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "general_ticket_price",
    "fieldtype": "Currency",
-   "read_only": 1,
-   "label": "General ticket price"
+   "label": "General ticket price",
+   "read_only": 1
   },
   {
    "fieldname": "student_ticket_price",
    "fieldtype": "Currency",
-   "read_only": 1,
-   "label": "Student ticket price"
+   "label": "Student ticket price",
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "student_tickets",
-   "fieldtype": "Int",
-   "read_only": 1,
+   "fieldtype": "Select",
    "label": "Student tickets",
-   "non_negative": 1
+   "non_negative": 1,
+   "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10",
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "general_tickets",
-   "fieldtype": "Int",
-   "read_only": 1,
+   "fieldtype": "Select",
    "label": "General tickets",
-   "non_negative": 1
+   "non_negative": 1,
+   "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10",
+   "read_only": 1
   },
   {
    "default": "0",
    "fieldname": "payment_captured",
    "fieldtype": "Check",
-   "read_only": 1,
-   "label": "Payment captured"
+   "label": "Payment captured",
+   "read_only": 1
   },
   {
    "fieldname": "state",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "label": "State",
-   "read_only": 1, 
-   "options": "Andaman and Nicobar Islands\nAndhra Pradesh\nArunachal Pradesh\nAssam\nBihar\nChandigarh\nChhattisgarh\nDadra and Nagar Haveli and Daman and Diu\nDelhi\nGoa\nGujarat\nHaryana\nHimachal Pradesh\nJammu and Kashmir\nJharkhand\nKarnataka\nKerala\nLadakh\nLakshadweep Islands\nMadhya Pradesh\nMaharashtra\nManipur\nMeghalaya\nMizoram\nNagaland\nOdisha\nOther Territory\nPondicherry\nPunjab\nRajasthan\nSikkim\nTamil Nadu\nTelangana\nTripura\nUttar Pradesh\nUttarakhand\nWest Bengal",
+   "read_only": 1,
    "reqd": 1
   },
   {
    "fieldname": "pincode",
    "fieldtype": "Data",
-   "read_only": 1,
    "label": "Pincode",
+   "read_only": 1,
    "reqd": 1
+  },
+  {
+   "fieldname": "razorpay_order_id",
+   "fieldtype": "Data",
+   "label": "Razorpay order id"
+  },
+  {
+   "fieldname": "razorpay_payment_id",
+   "fieldtype": "Data",
+   "label": "Razorpay payment id"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-03-11 15:12:17.828329",
+ "modified": "2023-07-22 01:13:37.107864",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Payment",
