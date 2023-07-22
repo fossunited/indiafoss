@@ -22,13 +22,17 @@ def capture_pending_payments():
         as_dict=1,
     )
     for order in all_orders:
-        capture_payment(order["name"])
+        try:
+            capture_payment(order["name"])
+        except Exception as e:
+            frappe.log_error(e, "capture payment job Failed")
 
 
 def capture_payment(ticket_id):
     doc = frappe.get_doc("Conference Payment", ticket_id)
 
     if doc.payment_captured:
+        frappe.log_error(f"payment already captured {doc.name}", "capture payment job Failed")
         return
 
     razorpay_settings = frappe.get_doc("Razorpay Keys")
@@ -43,6 +47,10 @@ def capture_payment(ticket_id):
 
     if doc.payment_captured:
         if doc.total_amount != order["amount_paid"] / 100:
+            frappe.log_error(
+                f"invalid amounts {doc.total_amount} {order['amount_paid'] / 100}",
+                "capture payment job Failed",
+            )
             frappe.throw(
                 f"invalid amounts {doc.total_amount} {order['amount_paid'] / 100}"
             )
@@ -58,5 +66,5 @@ def capture_payment(ticket_id):
             tickets_booked + int(doc.student_tickets) + int(doc.general_tickets),
         )
 
-    doc.save(ignore_permissions=True)
+    doc.save()
     frappe.db.commit()

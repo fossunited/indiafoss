@@ -3,7 +3,9 @@ from . import __version__ as app_version
 app_name = "indiafoss"
 app_title = "Indiafoss"
 app_publisher = "shridhar.p@zerodha.com"
-app_description = "Free and Open Source Software conference by the FOSS United community."
+app_description = (
+    "Free and Open Source Software conference by the FOSS United community."
+)
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "shridhar.p@zerodha..com"
@@ -44,7 +46,7 @@ app_license = "MIT"
 
 # website user home page (by Role)
 # role_home_page = {
-#	"Role": "home_page"
+# 	"Role": "home_page"
 # }
 
 # Generators
@@ -109,7 +111,7 @@ app_license = "MIT"
 # 		"on_update": "method",
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
-#	}
+# 	}
 # }
 
 # Scheduled Tasks
@@ -134,11 +136,9 @@ app_license = "MIT"
 # }
 
 scheduler_events = {
-    "cron": {
-        "*/10 * * * *": [
-            "indiafoss.tasks.capture_pending_payments"
-        ]
-    }
+    "all": [
+        "indiafoss.tasks.capture_pending_payments",
+    ],
 }
 
 # Testing
