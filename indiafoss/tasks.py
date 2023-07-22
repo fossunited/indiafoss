@@ -1,24 +1,17 @@
 import frappe
 from frappe.integrations.utils import make_get_request
-from datetime import datetime, timedelta
 
 
 def capture_pending_payments():
     # Marks payments paid at razorpay as captured in indiafoss
-    time_after = datetime.now() - timedelta(minutes=55)
-    time_before = datetime.now() - timedelta(minutes=5)
     all_orders = frappe.db.sql(
         """
         select name from `tabConference Payment`
-        where payment_captured = 0 and creation >= %(time_after)s
-        and creation < %(time_before)s
+        where payment_captured = 0 and creation >= CONVERT_TZ(NOW(), '+00:00','+05:30') - INTERVAL 1 HOUR
+        and creation < CONVERT_TZ(NOW(), '+00:00','+05:30') - INTERVAL 5 MINUTE
         and razorpay_order_id is not null
         order by creation asc
         """,
-        values={
-            "time_before": time_before.strftime("%Y-%m-%d %H:%M:%S"),
-            "time_after": time_after.strftime("%Y-%m-%d %H:%M:%S"),
-        },
         as_dict=1,
     )
     for order in all_orders:
