@@ -135,8 +135,8 @@ app_license = "MIT"
 
 scheduler_events = {
     "cron": {
-        "*/15 * * * *": [
-            "indiafoss.indiafoss.doctype.conference_payment.conference_payment.capture_pending_payments"
+        "*/10 * * * *": [
+            "indiafoss.tasks.capture_pending_payments"
         ]
     }
 }
