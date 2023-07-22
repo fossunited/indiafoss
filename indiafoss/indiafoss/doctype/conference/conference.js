@@ -14,7 +14,7 @@ frappe.ui.form.on('Conference', {
 	        }).attr("href", "/proposal/new?conference=" + frm.doc.name + '&c=' + frm.doc.city + '&y='+ frm.doc.year + '&t=' + frm.doc.title).attr("target", "_blank")
 
 			frm.sidebar.add_user_action("Payment page Link", function(){
-	        }).attr("href", "/book-tickets/new?conference=" + frm.doc.name).attr("target", "_blank")
+	        }).attr("href", "/book-conference-tickets/" + frm.doc.name).attr("target", "_blank")
 	},
 	end_date: function(frm){
 		if(frm.doc.end_date && frm.doc.start_date > frm.doc.end_date){
