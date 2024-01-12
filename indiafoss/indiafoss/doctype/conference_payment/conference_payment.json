@@ -138,8 +138,7 @@
    "fieldname": "tshirt_addon",
    "fieldtype": "Select",
    "label": "T-shirt Addon",
-   "options": "Yes\nNo",
-   "reqd": 1
+   "options": "Yes\nNo"
   },
   {
    "fieldname": "tshirt_price",
@@ -150,13 +149,12 @@
    "fieldname": "tshirt_size",
    "fieldtype": "Select",
    "label": "T-Shirt Size",
-   "options": "XS\nS\nM\nL\nXL\n2XL\n3XL",
-   "reqd": 1
+   "options": "XS\nS\nM\nL\nXL\n2XL\n3XL"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-11 09:50:41.201973",
+ "modified": "2024-01-13 00:06:07.874541",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Payment",
