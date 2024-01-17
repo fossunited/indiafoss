@@ -138,7 +138,7 @@
    "fieldname": "tshirt_addon",
    "fieldtype": "Select",
    "label": "T-shirt Addon",
-   "options": "Yes\nNo"
+   "options": "\nYes\nNo"
   },
   {
    "fieldname": "tshirt_price",
@@ -154,7 +154,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-13 00:06:07.874541",
+ "modified": "2024-01-17 19:03:40.797973",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Payment",
