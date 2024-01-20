@@ -22,6 +22,7 @@
   "section_break_9",
   "general_ticket_price",
   "student_ticket_price",
+  "tshirt_price",
   "column_break_15",
   "max_tickets",
   "tickets_booked",
@@ -50,7 +51,6 @@
   "cfp_start_date",
   "column_break_32",
   "cfp_end_date",
-  "section_break_34",
   "cta_section",
   "cta_title",
   "column_break_38",
@@ -242,10 +242,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "section_break_34",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "navbar",
    "fieldtype": "Table",
    "label": "Navbar",
@@ -342,6 +338,13 @@
   {
    "fieldname": "column_break_15",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tshirt_price",
+   "fieldtype": "Currency",
+   "label": "T-shirt price",
+   "non_negative": 1,
+   "precision": "2"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -355,7 +358,7 @@
    "link_fieldname": "conference"
   }
  ],
- "modified": "2023-03-11 15:19:19.586355",
+ "modified": "2024-01-20 22:43:03.066115",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference",
