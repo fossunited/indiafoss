@@ -32,10 +32,10 @@ class ConferencePayment(Document):
             )
 
     def validate_amounts(self):
-        db_gen_ticket_price, db_st_ticket_price = frappe.db.get_value(
+        db_gen_ticket_price, db_st_ticket_price,db_tshirt_price = frappe.db.get_value(
             "Conference",
             self.conference,
-            ["general_ticket_price", "student_ticket_price"],
+            ["general_ticket_price", "student_ticket_price", "tshirt_price"],
         )
 
         if self.general_ticket_price != db_gen_ticket_price:
@@ -47,8 +47,8 @@ class ConferencePayment(Document):
         expected_total = (
             int(self.student_tickets) * db_st_ticket_price
             + int(self.general_tickets) * db_gen_ticket_price
+            + int(self.tshirt_count) * db_tshirt_price
         )
-
         if flt(expected_total, 2) != flt(self.total_amount, 2):
             frappe.throw("total mismatch, please contact admin")
 

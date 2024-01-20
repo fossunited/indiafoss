@@ -22,9 +22,8 @@
   "general_ticket_price",
   "student_ticket_price",
   "payment_captured",
-  "tshirt_addon",
+  "tshirt_count",
   "tshirt_price",
-  "tshirt_size",
   "attendees"
  ],
  "fields": [
@@ -72,7 +71,8 @@
    "label": "Conference",
    "options": "Conference",
    "read_only": 1,
-   "reqd": 1
+   "reqd": 1,
+   "search_index": 1
   },
   {
    "fieldname": "general_ticket_price",
@@ -136,32 +136,27 @@
    "label": "Razorpay payment id"
   },
   {
-   "fieldname": "tshirt_addon",
-   "fieldtype": "Select",
-   "label": "T-shirt Addon",
-   "options": "\nYes\nNo"
-  },
-  {
    "fieldname": "tshirt_price",
    "fieldtype": "Currency",
-   "label": "T-shirt Price"
-  },
-  {
-   "fieldname": "tshirt_size",
-   "fieldtype": "Select",
-   "label": "T-Shirt Size",
-   "options": "XS\nS\nM\nL\nXL\n2XL\n3XL"
+   "label": "T-shirt price"
   },
   {
    "fieldname": "attendees",
    "fieldtype": "Table",
    "label": "Attendees",
    "options": "Attendees"
+  },
+  {
+   "fieldname": "tshirt_count",
+   "fieldtype": "Int",
+   "label": "T-shirt count",
+   "non_negative": 1,
+   "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-17 21:25:50.285333",
+ "modified": "2024-01-20 22:47:52.540072",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Payment",
