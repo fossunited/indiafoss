@@ -147,6 +147,7 @@
    "options": "Attendees"
   },
   {
+   "default": "0",
    "fieldname": "tshirt_count",
    "fieldtype": "Int",
    "label": "T-shirt count",
@@ -156,7 +157,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-20 22:47:52.540072",
+ "modified": "2024-01-21 12:24:04.896968",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Payment",
