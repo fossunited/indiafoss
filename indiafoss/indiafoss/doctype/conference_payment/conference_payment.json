@@ -24,6 +24,9 @@
   "payment_captured",
   "tshirt_count",
   "tshirt_price",
+  "transferred_ticket",
+  "transferee_name",
+  "transferee_email",
   "attendees"
  ],
  "fields": [
@@ -41,6 +44,7 @@
    "in_list_view": 1,
    "label": "Name",
    "read_only": 1,
+   "read_only_depends_on": "eval: doc.transferred_ticket == 0;",
    "reqd": 1
   },
   {
@@ -153,11 +157,29 @@
    "label": "T-shirt count",
    "non_negative": 1,
    "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
+  },
+  {
+   "default": "0",
+   "fieldname": "transferred_ticket",
+   "fieldtype": "Check",
+   "label": "Transferred Ticket"
+  },
+  {
+   "depends_on": "eval: doc.transferred_ticket == 1;",
+   "fieldname": "transferee_name",
+   "fieldtype": "Data",
+   "label": "Transferee Name"
+  },
+  {
+   "depends_on": "eval: doc.transferred_ticket == 1;",
+   "fieldname": "transferee_email",
+   "fieldtype": "Data",
+   "label": "Transferee Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-01-21 12:24:04.896968",
+ "modified": "2024-03-08 18:18:57.047239",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Payment",
