@@ -36,6 +36,7 @@
    "in_list_view": 1,
    "label": "Organization or College Name",
    "read_only": 1,
+   "read_only_depends_on": "eval: doc.transferred_ticket == 0;",
    "reqd": 1
   },
   {
@@ -53,6 +54,7 @@
    "in_list_view": 1,
    "label": "Email",
    "read_only": 1,
+   "read_only_depends_on": "eval: doc.transferred_ticket == 0;",
    "reqd": 1
   },
   {
@@ -67,7 +69,8 @@
    "fieldname": "total_amount",
    "fieldtype": "Currency",
    "label": "Total amount",
-   "read_only": 1
+   "read_only": 1,
+   "read_only_depends_on": "eval: doc.transferred_ticket == 0;"
   },
   {
    "fieldname": "conference",
@@ -97,7 +100,8 @@
    "label": "Student tickets",
    "non_negative": 1,
    "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10",
-   "read_only": 1
+   "read_only": 1,
+   "read_only_depends_on": "eval: doc.transferred_ticket == 0;"
   },
   {
    "default": "0",
@@ -106,7 +110,8 @@
    "label": "General tickets",
    "non_negative": 1,
    "options": "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10",
-   "read_only": 1
+   "read_only": 1,
+   "read_only_depends_on": "eval: doc.transferred_ticket == 0;"
   },
   {
    "default": "0",
@@ -179,7 +184,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-08 18:18:57.047239",
+ "modified": "2024-03-30 15:52:03.768855",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Payment",
