@@ -53,6 +53,7 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Email",
+   "options": "Email",
    "read_only": 1,
    "read_only_depends_on": "eval: doc.transferred_ticket == 0;",
    "reqd": 1
@@ -179,12 +180,13 @@
    "depends_on": "eval: doc.transferred_ticket == 1;",
    "fieldname": "transferee_email",
    "fieldtype": "Data",
-   "label": "Transferee Email"
+   "label": "Transferee Email",
+   "options": "Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-30 15:52:03.768855",
+ "modified": "2024-03-31 22:13:40.377664",
  "modified_by": "Administrator",
  "module": "Indiafoss",
  "name": "Conference Payment",
